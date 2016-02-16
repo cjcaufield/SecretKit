@@ -66,6 +66,9 @@
 		3B412ECA1C72ADDB0073441D /* SGFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGFormatter.swift; sourceTree = "<group>"; };
 		3B412ECB1C72ADDB0073441D /* SGInvocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGInvocation.swift; sourceTree = "<group>"; };
 		3B412ECC1C72ADDB0073441D /* SGUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGUtilities.swift; sourceTree = "<group>"; };
+		3B8972EA1C73902400FDDC3C /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		3B8972EB1C73902400FDDC3C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		3B8972EC1C73902400FDDC3C /* SecretKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = SecretKit.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,7 @@
 		3B412E631C7294BD0073441D = {
 			isa = PBXGroup;
 			children = (
+				3B8972E91C73901600FDDC3C /* Files */,
 				3B412E6F1C7294BD0073441D /* SecretKit */,
 				3B412E6E1C7294BD0073441D /* Products */,
 			);
@@ -158,6 +162,16 @@
 				3B412EB11C72ACA70073441D /* Info-osx.plist */,
 			);
 			path = osx;
+			sourceTree = "<group>";
+		};
+		3B8972E91C73901600FDDC3C /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				3B8972EC1C73902400FDDC3C /* SecretKit.podspec */,
+				3B8972EB1C73902400FDDC3C /* README.md */,
+				3B8972EA1C73902400FDDC3C /* LICENSE */,
+			);
+			name = Files;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
