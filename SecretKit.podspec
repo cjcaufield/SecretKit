@@ -6,7 +6,7 @@ s.name = "SecretKit"
 s.summary = "Cocoa classes for iOS and OSX."
 s.requires_arc = true
 
-s.version = "0.1.1"
+s.version = "0.1.3"
 
 s.license = { :type => "MIT", :file => "LICENSE" }
 
