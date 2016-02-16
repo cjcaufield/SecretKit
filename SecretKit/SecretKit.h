@@ -10,13 +10,14 @@
 
 FOUNDATION_EXPORT double SecretKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char SecretKitVersionString[];
+
 /*
-#import "SecretKit.h"
 #import "SGData.swift"
 #import "SGFormatter.swift"
 #import "SGInvocation.swift"
+*/
 #import "SGUtilities.swift"
-
+/*
 #if os(iOS) || os(watchOS) || os(tvOS)
 
     #import <UIKit/UIKit.h>

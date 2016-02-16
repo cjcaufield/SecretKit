@@ -25,8 +25,6 @@
 		3B412E9D1C72A5690073441D /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B412E8A1C72A5690073441D /* TextFieldCell.xib */; };
 		3B412E9E1C72A5690073441D /* TextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B412E8B1C72A5690073441D /* TextViewCell.xib */; };
 		3B412E9F1C72A5690073441D /* TimePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B412E8C1C72A5690073441D /* TimePickerCell.xib */; };
-		3B412EAE1C72AA730073441D /* Debug.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B412EAD1C72AA730073441D /* Debug.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3B412EAF1C72AA730073441D /* Debug.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B412EAD1C72AA730073441D /* Debug.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3B412ECE1C72ADDB0073441D /* SecretKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B412EC81C72ADDB0073441D /* SecretKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3B412ECF1C72ADDB0073441D /* SGData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412EC91C72ADDB0073441D /* SGData.swift */; };
 		3B412ED01C72ADDB0073441D /* SGData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412EC91C72ADDB0073441D /* SGData.swift */; };
@@ -62,7 +60,6 @@
 		3B412E8B1C72A5690073441D /* TextViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextViewCell.xib; sourceTree = "<group>"; };
 		3B412E8C1C72A5690073441D /* TimePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimePickerCell.xib; sourceTree = "<group>"; };
 		3B412EA51C72A9DC0073441D /* SecretKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SecretKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B412EAD1C72AA730073441D /* Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debug.h; sourceTree = "<group>"; };
 		3B412EB11C72ACA70073441D /* Info-osx.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-osx.plist"; sourceTree = "<group>"; };
 		3B412EC81C72ADDB0073441D /* SecretKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecretKit.h; sourceTree = "<group>"; };
 		3B412EC91C72ADDB0073441D /* SGData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGData.swift; sourceTree = "<group>"; };
@@ -110,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				3B412E701C7294BD0073441D /* SecretKit.h */,
-				3B412EAD1C72AA730073441D /* Debug.h */,
 				3B412EC81C72ADDB0073441D /* SecretKit.h */,
 				3B412EC91C72ADDB0073441D /* SGData.swift */,
 				3B412ECA1C72ADDB0073441D /* SGFormatter.swift */,
@@ -172,7 +168,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B412EDA1C72B8CF0073441D /* SecretKit.h in Headers */,
-				3B412EAE1C72AA730073441D /* Debug.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,7 +176,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B412ECE1C72ADDB0073441D /* SecretKit.h in Headers */,
-				3B412EAF1C72AA730073441D /* Debug.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

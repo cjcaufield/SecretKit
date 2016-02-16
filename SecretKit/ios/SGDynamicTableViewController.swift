@@ -310,7 +310,6 @@ class SGDynamicTableViewController: UITableViewController,
                 if let target = self.targetForData(data) {
                     let countdown = (picker.datePickerMode == .CountDownTimer)
                     let value: AnyObject = (countdown) ? picker.countDownDuration : picker.date
-                    let identifier = (countdown) ? TIME_PICKER_CELL_ID : DATE_PICKER_CELL_ID
                     self.dataModelWillChange(data)
                     target.setValue(value, forKeyPath: path)
                     self.dataModelDidChange(data)

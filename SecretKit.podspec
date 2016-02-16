@@ -14,12 +14,13 @@ s.author = { "Colin Caufield" => "cjcaufield@gmail.com" }
 
 s.homepage = "https://github.com/cjcaufield/SecretKit"
 
-s.source = { :git => "https://github.com/cjcaufield/SecretKit", :tag => "#{s.version}" }
+s.source = { :git => "https://github.com/cjcaufield/SecretKit.git", :tag => "#{s.version}" }
 
 s.framework = "UIKit"
 
-s.source_files = "SecretKit/**/*.{swift, h}"
+s.source_files = "SecretKit/**/*.{swift,h}"
 
-s.resources = "SecretKit/**/*.{png, jpeg, jpg, storyboard, xib}"
+s.resources = "SecretKit/**/*.{png,jpeg,jpg,storyboard,xib}"
 
 end
+
