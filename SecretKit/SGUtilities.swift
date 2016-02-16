@@ -8,7 +8,7 @@
 
 import Foundation
 
-func removeNils<T>(array: [T?]) -> [T] {
+public func removeNils<T>(array: [T?]) -> [T] {
     
     var newArray = [T]()
     for item in array {

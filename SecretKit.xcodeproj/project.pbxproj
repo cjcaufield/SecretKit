@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B279E4C1C739D0D00DB0F5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B279E4B1C739D0D00DB0F5F /* AppDelegate.swift */; };
+		3B279E4E1C739D0D00DB0F5F /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B279E4D1C739D0D00DB0F5F /* MasterViewController.swift */; };
+		3B279E501C739D0D00DB0F5F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B279E4F1C739D0D00DB0F5F /* DetailViewController.swift */; };
+		3B279E531C739D0D00DB0F5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B279E511C739D0D00DB0F5F /* Main.storyboard */; };
+		3B279E551C739D0D00DB0F5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B279E541C739D0D00DB0F5F /* Assets.xcassets */; };
+		3B279E581C739D0D00DB0F5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B279E561C739D0D00DB0F5F /* LaunchScreen.storyboard */; };
+		3B279E5D1C739E1200DB0F5F /* SecretKitTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B412E6D1C7294BD0073441D /* SecretKitTouch.framework */; };
 		3B412E8E1C72A5690073441D /* NSIndexPathExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412E7A1C72A5690073441D /* NSIndexPathExtensions.swift */; };
 		3B412E8F1C72A5690073441D /* SGCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412E7B1C72A5690073441D /* SGCellData.swift */; };
 		3B412E901C72A5690073441D /* SGColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412E7C1C72A5690073441D /* SGColorPicker.swift */; };
@@ -38,6 +45,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B279E491C739D0D00DB0F5F /* SecretKitTouchTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecretKitTouchTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B279E4B1C739D0D00DB0F5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3B279E4D1C739D0D00DB0F5F /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		3B279E4F1C739D0D00DB0F5F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		3B279E521C739D0D00DB0F5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3B279E541C739D0D00DB0F5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3B279E571C739D0D00DB0F5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3B279E591C739D0D00DB0F5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B412E6D1C7294BD0073441D /* SecretKitTouch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SecretKitTouch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B412E701C7294BD0073441D /* SecretKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecretKit.h; sourceTree = "<group>"; };
 		3B412E791C72A5690073441D /* Info-ios.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-ios.plist"; sourceTree = "<group>"; };
@@ -72,6 +87,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3B279E461C739D0D00DB0F5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B279E5D1C739E1200DB0F5F /* SecretKitTouch.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3B412E691C7294BD0073441D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -89,11 +112,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B279E4A1C739D0D00DB0F5F /* SecretKitTouchTest */ = {
+			isa = PBXGroup;
+			children = (
+				3B279E4B1C739D0D00DB0F5F /* AppDelegate.swift */,
+				3B279E4D1C739D0D00DB0F5F /* MasterViewController.swift */,
+				3B279E4F1C739D0D00DB0F5F /* DetailViewController.swift */,
+				3B279E511C739D0D00DB0F5F /* Main.storyboard */,
+				3B279E541C739D0D00DB0F5F /* Assets.xcassets */,
+				3B279E561C739D0D00DB0F5F /* LaunchScreen.storyboard */,
+				3B279E591C739D0D00DB0F5F /* Info.plist */,
+			);
+			path = SecretKitTouchTest;
+			sourceTree = "<group>";
+		};
 		3B412E631C7294BD0073441D = {
 			isa = PBXGroup;
 			children = (
 				3B8972E91C73901600FDDC3C /* Files */,
 				3B412E6F1C7294BD0073441D /* SecretKit */,
+				3B279E4A1C739D0D00DB0F5F /* SecretKitTouchTest */,
 				3B412E6E1C7294BD0073441D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +141,7 @@
 			children = (
 				3B412E6D1C7294BD0073441D /* SecretKitTouch.framework */,
 				3B412EA51C72A9DC0073441D /* SecretKit.framework */,
+				3B279E491C739D0D00DB0F5F /* SecretKitTouchTest.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -196,6 +235,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		3B279E481C739D0D00DB0F5F /* SecretKitTouchTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B279E5C1C739D0D00DB0F5F /* Build configuration list for PBXNativeTarget "SecretKitTouchTest" */;
+			buildPhases = (
+				3B279E451C739D0D00DB0F5F /* Sources */,
+				3B279E461C739D0D00DB0F5F /* Frameworks */,
+				3B279E471C739D0D00DB0F5F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SecretKitTouchTest;
+			productName = SecretKitTouchTest;
+			productReference = 3B279E491C739D0D00DB0F5F /* SecretKitTouchTest.app */;
+			productType = "com.apple.product-type.application";
+		};
 		3B412E6C1C7294BD0073441D /* SecretKitTouch */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B412E751C7294BD0073441D /* Build configuration list for PBXNativeTarget "SecretKitTouch" */;
@@ -238,9 +294,13 @@
 		3B412E641C7294BD0073441D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Secret Geometry, Inc.";
 				TargetAttributes = {
+					3B279E481C739D0D00DB0F5F = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
 					3B412E6C1C7294BD0073441D = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
@@ -255,6 +315,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 3B412E631C7294BD0073441D;
 			productRefGroup = 3B412E6E1C7294BD0073441D /* Products */;
@@ -263,11 +324,22 @@
 			targets = (
 				3B412E6C1C7294BD0073441D /* SecretKitTouch */,
 				3B412EA41C72A9DC0073441D /* SecretKit */,
+				3B279E481C739D0D00DB0F5F /* SecretKitTouchTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3B279E471C739D0D00DB0F5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B279E581C739D0D00DB0F5F /* LaunchScreen.storyboard in Resources */,
+				3B279E551C739D0D00DB0F5F /* Assets.xcassets in Resources */,
+				3B279E531C739D0D00DB0F5F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3B412E6B1C7294BD0073441D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -295,6 +367,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3B279E451C739D0D00DB0F5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B279E501C739D0D00DB0F5F /* DetailViewController.swift in Sources */,
+				3B279E4E1C739D0D00DB0F5F /* MasterViewController.swift in Sources */,
+				3B279E4C1C739D0D00DB0F5F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3B412E681C7294BD0073441D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -327,7 +409,48 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		3B279E511C739D0D00DB0F5F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3B279E521C739D0D00DB0F5F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3B279E561C739D0D00DB0F5F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3B279E571C739D0D00DB0F5F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		3B279E5A1C739D0D00DB0F5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SecretKitTouchTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.secretgeometry.SecretKitTouchTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3B279E5B1C739D0D00DB0F5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SecretKitTouchTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.secretgeometry.SecretKitTouchTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		3B412E731C7294BD0073441D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -497,6 +620,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3B279E5C1C739D0D00DB0F5F /* Build configuration list for PBXNativeTarget "SecretKitTouchTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B279E5A1C739D0D00DB0F5F /* Debug */,
+				3B279E5B1C739D0D00DB0F5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		3B412E671C7294BD0073441D /* Build configuration list for PBXProject "SecretKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
