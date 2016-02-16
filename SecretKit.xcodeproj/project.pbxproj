@@ -7,17 +7,79 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B412E711C7294BD0073441D /* SecretKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B412E701C7294BD0073441D /* SecretKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B412E8E1C72A5690073441D /* NSIndexPathExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412E7A1C72A5690073441D /* NSIndexPathExtensions.swift */; };
+		3B412E8F1C72A5690073441D /* SGCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412E7B1C72A5690073441D /* SGCellData.swift */; };
+		3B412E901C72A5690073441D /* SGColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412E7C1C72A5690073441D /* SGColorPicker.swift */; };
+		3B412E911C72A5690073441D /* SGColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412E7D1C72A5690073441D /* SGColorView.swift */; };
+		3B412E921C72A5690073441D /* SGCoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412E7E1C72A5690073441D /* SGCoreDataTableViewController.swift */; };
+		3B412E931C72A5690073441D /* SGCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412E7F1C72A5690073441D /* SGCustomTableViewCell.swift */; };
+		3B412E941C72A5690073441D /* SGDynamicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412E801C72A5690073441D /* SGDynamicTableViewController.swift */; };
+		3B412E951C72A5690073441D /* SGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412E811C72A5690073441D /* SGViewController.swift */; };
+		3B412E961C72A5690073441D /* ColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B412E831C72A5690073441D /* ColorCell.xib */; };
+		3B412E971C72A5690073441D /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B412E841C72A5690073441D /* DatePickerCell.xib */; };
+		3B412E981C72A5690073441D /* LabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B412E851C72A5690073441D /* LabelCell.xib */; };
+		3B412E991C72A5690073441D /* PickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B412E861C72A5690073441D /* PickerCell.xib */; };
+		3B412E9A1C72A5690073441D /* SegmentedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B412E871C72A5690073441D /* SegmentedCell.xib */; };
+		3B412E9B1C72A5690073441D /* SliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B412E881C72A5690073441D /* SliderCell.xib */; };
+		3B412E9C1C72A5690073441D /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B412E891C72A5690073441D /* SwitchCell.xib */; };
+		3B412E9D1C72A5690073441D /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B412E8A1C72A5690073441D /* TextFieldCell.xib */; };
+		3B412E9E1C72A5690073441D /* TextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B412E8B1C72A5690073441D /* TextViewCell.xib */; };
+		3B412E9F1C72A5690073441D /* TimePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B412E8C1C72A5690073441D /* TimePickerCell.xib */; };
+		3B412EAE1C72AA730073441D /* Debug.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B412EAD1C72AA730073441D /* Debug.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B412EAF1C72AA730073441D /* Debug.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B412EAD1C72AA730073441D /* Debug.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B412ECE1C72ADDB0073441D /* SecretKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B412EC81C72ADDB0073441D /* SecretKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B412ECF1C72ADDB0073441D /* SGData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412EC91C72ADDB0073441D /* SGData.swift */; };
+		3B412ED01C72ADDB0073441D /* SGData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412EC91C72ADDB0073441D /* SGData.swift */; };
+		3B412ED11C72ADDB0073441D /* SGFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412ECA1C72ADDB0073441D /* SGFormatter.swift */; };
+		3B412ED21C72ADDB0073441D /* SGFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412ECA1C72ADDB0073441D /* SGFormatter.swift */; };
+		3B412ED31C72ADDB0073441D /* SGInvocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412ECB1C72ADDB0073441D /* SGInvocation.swift */; };
+		3B412ED41C72ADDB0073441D /* SGInvocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412ECB1C72ADDB0073441D /* SGInvocation.swift */; };
+		3B412ED51C72ADDB0073441D /* SGUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412ECC1C72ADDB0073441D /* SGUtilities.swift */; };
+		3B412ED61C72ADDB0073441D /* SGUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412ECC1C72ADDB0073441D /* SGUtilities.swift */; };
+		3B412EDA1C72B8CF0073441D /* SecretKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B412E701C7294BD0073441D /* SecretKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3B412E6D1C7294BD0073441D /* SecretKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SecretKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B412E6D1C7294BD0073441D /* SecretKitTouch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SecretKitTouch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B412E701C7294BD0073441D /* SecretKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecretKit.h; sourceTree = "<group>"; };
-		3B412E721C7294BD0073441D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B412E791C72A5690073441D /* Info-ios.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-ios.plist"; sourceTree = "<group>"; };
+		3B412E7A1C72A5690073441D /* NSIndexPathExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSIndexPathExtensions.swift; sourceTree = "<group>"; };
+		3B412E7B1C72A5690073441D /* SGCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGCellData.swift; sourceTree = "<group>"; };
+		3B412E7C1C72A5690073441D /* SGColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGColorPicker.swift; sourceTree = "<group>"; };
+		3B412E7D1C72A5690073441D /* SGColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGColorView.swift; sourceTree = "<group>"; };
+		3B412E7E1C72A5690073441D /* SGCoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGCoreDataTableViewController.swift; sourceTree = "<group>"; };
+		3B412E7F1C72A5690073441D /* SGCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGCustomTableViewCell.swift; sourceTree = "<group>"; };
+		3B412E801C72A5690073441D /* SGDynamicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGDynamicTableViewController.swift; sourceTree = "<group>"; };
+		3B412E811C72A5690073441D /* SGViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGViewController.swift; sourceTree = "<group>"; };
+		3B412E831C72A5690073441D /* ColorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorCell.xib; sourceTree = "<group>"; };
+		3B412E841C72A5690073441D /* DatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
+		3B412E851C72A5690073441D /* LabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelCell.xib; sourceTree = "<group>"; };
+		3B412E861C72A5690073441D /* PickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerCell.xib; sourceTree = "<group>"; };
+		3B412E871C72A5690073441D /* SegmentedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SegmentedCell.xib; sourceTree = "<group>"; };
+		3B412E881C72A5690073441D /* SliderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderCell.xib; sourceTree = "<group>"; };
+		3B412E891C72A5690073441D /* SwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
+		3B412E8A1C72A5690073441D /* TextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
+		3B412E8B1C72A5690073441D /* TextViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextViewCell.xib; sourceTree = "<group>"; };
+		3B412E8C1C72A5690073441D /* TimePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimePickerCell.xib; sourceTree = "<group>"; };
+		3B412EA51C72A9DC0073441D /* SecretKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SecretKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B412EAD1C72AA730073441D /* Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debug.h; sourceTree = "<group>"; };
+		3B412EB11C72ACA70073441D /* Info-osx.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-osx.plist"; sourceTree = "<group>"; };
+		3B412EC81C72ADDB0073441D /* SecretKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecretKit.h; sourceTree = "<group>"; };
+		3B412EC91C72ADDB0073441D /* SGData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGData.swift; sourceTree = "<group>"; };
+		3B412ECA1C72ADDB0073441D /* SGFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGFormatter.swift; sourceTree = "<group>"; };
+		3B412ECB1C72ADDB0073441D /* SGInvocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGInvocation.swift; sourceTree = "<group>"; };
+		3B412ECC1C72ADDB0073441D /* SGUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGUtilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		3B412E691C7294BD0073441D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B412EA11C72A9DC0073441D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -38,7 +100,8 @@
 		3B412E6E1C7294BD0073441D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3B412E6D1C7294BD0073441D /* SecretKit.framework */,
+				3B412E6D1C7294BD0073441D /* SecretKitTouch.framework */,
+				3B412EA51C72A9DC0073441D /* SecretKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -47,9 +110,58 @@
 			isa = PBXGroup;
 			children = (
 				3B412E701C7294BD0073441D /* SecretKit.h */,
-				3B412E721C7294BD0073441D /* Info.plist */,
+				3B412EAD1C72AA730073441D /* Debug.h */,
+				3B412EC81C72ADDB0073441D /* SecretKit.h */,
+				3B412EC91C72ADDB0073441D /* SGData.swift */,
+				3B412ECA1C72ADDB0073441D /* SGFormatter.swift */,
+				3B412ECB1C72ADDB0073441D /* SGInvocation.swift */,
+				3B412ECC1C72ADDB0073441D /* SGUtilities.swift */,
+				3B412E781C72A5690073441D /* ios */,
+				3B412EB01C72ACA70073441D /* osx */,
 			);
 			path = SecretKit;
+			sourceTree = "<group>";
+		};
+		3B412E781C72A5690073441D /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				3B412E791C72A5690073441D /* Info-ios.plist */,
+				3B412E7A1C72A5690073441D /* NSIndexPathExtensions.swift */,
+				3B412E7B1C72A5690073441D /* SGCellData.swift */,
+				3B412E7C1C72A5690073441D /* SGColorPicker.swift */,
+				3B412E7D1C72A5690073441D /* SGColorView.swift */,
+				3B412E7E1C72A5690073441D /* SGCoreDataTableViewController.swift */,
+				3B412E7F1C72A5690073441D /* SGCustomTableViewCell.swift */,
+				3B412E801C72A5690073441D /* SGDynamicTableViewController.swift */,
+				3B412E811C72A5690073441D /* SGViewController.swift */,
+				3B412E821C72A5690073441D /* TableCells */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		3B412E821C72A5690073441D /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				3B412E831C72A5690073441D /* ColorCell.xib */,
+				3B412E841C72A5690073441D /* DatePickerCell.xib */,
+				3B412E851C72A5690073441D /* LabelCell.xib */,
+				3B412E861C72A5690073441D /* PickerCell.xib */,
+				3B412E871C72A5690073441D /* SegmentedCell.xib */,
+				3B412E881C72A5690073441D /* SliderCell.xib */,
+				3B412E891C72A5690073441D /* SwitchCell.xib */,
+				3B412E8A1C72A5690073441D /* TextFieldCell.xib */,
+				3B412E8B1C72A5690073441D /* TextViewCell.xib */,
+				3B412E8C1C72A5690073441D /* TimePickerCell.xib */,
+			);
+			path = TableCells;
+			sourceTree = "<group>";
+		};
+		3B412EB01C72ACA70073441D /* osx */ = {
+			isa = PBXGroup;
+			children = (
+				3B412EB11C72ACA70073441D /* Info-osx.plist */,
+			);
+			path = osx;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,16 +171,26 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B412E711C7294BD0073441D /* SecretKit.h in Headers */,
+				3B412EDA1C72B8CF0073441D /* SecretKit.h in Headers */,
+				3B412EAE1C72AA730073441D /* Debug.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B412EA21C72A9DC0073441D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B412ECE1C72ADDB0073441D /* SecretKit.h in Headers */,
+				3B412EAF1C72AA730073441D /* Debug.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		3B412E6C1C7294BD0073441D /* SecretKit */ = {
+		3B412E6C1C7294BD0073441D /* SecretKitTouch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3B412E751C7294BD0073441D /* Build configuration list for PBXNativeTarget "SecretKit" */;
+			buildConfigurationList = 3B412E751C7294BD0073441D /* Build configuration list for PBXNativeTarget "SecretKitTouch" */;
 			buildPhases = (
 				3B412E681C7294BD0073441D /* Sources */,
 				3B412E691C7294BD0073441D /* Frameworks */,
@@ -79,9 +201,27 @@
 			);
 			dependencies = (
 			);
-			name = SecretKit;
+			name = SecretKitTouch;
 			productName = SecretKit;
-			productReference = 3B412E6D1C7294BD0073441D /* SecretKit.framework */;
+			productReference = 3B412E6D1C7294BD0073441D /* SecretKitTouch.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3B412EA41C72A9DC0073441D /* SecretKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B412EAA1C72A9DC0073441D /* Build configuration list for PBXNativeTarget "SecretKit" */;
+			buildPhases = (
+				3B412EA01C72A9DC0073441D /* Sources */,
+				3B412EA11C72A9DC0073441D /* Frameworks */,
+				3B412EA21C72A9DC0073441D /* Headers */,
+				3B412EA31C72A9DC0073441D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SecretKit;
+			productName = "SecretKit-mac";
+			productReference = 3B412EA51C72A9DC0073441D /* SecretKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -94,6 +234,9 @@
 				ORGANIZATIONNAME = "Secret Geometry, Inc.";
 				TargetAttributes = {
 					3B412E6C1C7294BD0073441D = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					3B412EA41C72A9DC0073441D = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
 				};
@@ -110,13 +253,31 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3B412E6C1C7294BD0073441D /* SecretKit */,
+				3B412E6C1C7294BD0073441D /* SecretKitTouch */,
+				3B412EA41C72A9DC0073441D /* SecretKit */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3B412E6B1C7294BD0073441D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B412E971C72A5690073441D /* DatePickerCell.xib in Resources */,
+				3B412E9E1C72A5690073441D /* TextViewCell.xib in Resources */,
+				3B412E9C1C72A5690073441D /* SwitchCell.xib in Resources */,
+				3B412E9D1C72A5690073441D /* TextFieldCell.xib in Resources */,
+				3B412E9F1C72A5690073441D /* TimePickerCell.xib in Resources */,
+				3B412E981C72A5690073441D /* LabelCell.xib in Resources */,
+				3B412E9B1C72A5690073441D /* SliderCell.xib in Resources */,
+				3B412E961C72A5690073441D /* ColorCell.xib in Resources */,
+				3B412E9A1C72A5690073441D /* SegmentedCell.xib in Resources */,
+				3B412E991C72A5690073441D /* PickerCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B412EA31C72A9DC0073441D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -130,6 +291,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B412E931C72A5690073441D /* SGCustomTableViewCell.swift in Sources */,
+				3B412E911C72A5690073441D /* SGColorView.swift in Sources */,
+				3B412E951C72A5690073441D /* SGViewController.swift in Sources */,
+				3B412E901C72A5690073441D /* SGColorPicker.swift in Sources */,
+				3B412ED11C72ADDB0073441D /* SGFormatter.swift in Sources */,
+				3B412E941C72A5690073441D /* SGDynamicTableViewController.swift in Sources */,
+				3B412ED31C72ADDB0073441D /* SGInvocation.swift in Sources */,
+				3B412E8E1C72A5690073441D /* NSIndexPathExtensions.swift in Sources */,
+				3B412E921C72A5690073441D /* SGCoreDataTableViewController.swift in Sources */,
+				3B412E8F1C72A5690073441D /* SGCellData.swift in Sources */,
+				3B412ED51C72ADDB0073441D /* SGUtilities.swift in Sources */,
+				3B412ECF1C72ADDB0073441D /* SGData.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B412EA01C72A9DC0073441D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B412ED21C72ADDB0073441D /* SGFormatter.swift in Sources */,
+				3B412ED01C72ADDB0073441D /* SGData.swift in Sources */,
+				3B412ED61C72ADDB0073441D /* SGUtilities.swift in Sources */,
+				3B412ED41C72ADDB0073441D /* SGInvocation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,10 +416,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SecretKit/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SecretKit/ios/Info-ios.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.secretgeometry.SecretKit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.secretgeometry.SecretKitTouch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -248,11 +432,56 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SecretKit/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SecretKit/ios/Info-ios.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.secretgeometry.SecretKit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.secretgeometry.SecretKitTouch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		3B412EAB1C72A9DC0073441D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "$(SRCROOT)/SecretKit/osx/Info-osx.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.secretgeometry.SecretKit-mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3B412EAC1C72A9DC0073441D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "$(SRCROOT)/SecretKit/osx/Info-osx.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.secretgeometry.SecretKit-mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -269,13 +498,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3B412E751C7294BD0073441D /* Build configuration list for PBXNativeTarget "SecretKit" */ = {
+		3B412E751C7294BD0073441D /* Build configuration list for PBXNativeTarget "SecretKitTouch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3B412E761C7294BD0073441D /* Debug */,
 				3B412E771C7294BD0073441D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B412EAA1C72A9DC0073441D /* Build configuration list for PBXNativeTarget "SecretKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B412EAB1C72A9DC0073441D /* Debug */,
+				3B412EAC1C72A9DC0073441D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

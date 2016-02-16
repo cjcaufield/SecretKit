@@ -6,14 +6,34 @@
 //  Copyright © 2016 Secret Geometry, Inc. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-//! Project version number for SecretKit.
 FOUNDATION_EXPORT double SecretKitVersionNumber;
-
-//! Project version string for SecretKit.
 FOUNDATION_EXPORT const unsigned char SecretKitVersionString[];
+/*
+#import "SecretKit.h"
+#import "SGData.swift"
+#import "SGFormatter.swift"
+#import "SGInvocation.swift"
+#import "SGUtilities.swift"
 
-// In this header, you should import all the public headers of your framework using statements like #import <SecretKit/PublicHeader.h>
+#if os(iOS) || os(watchOS) || os(tvOS)
 
+    #import <UIKit/UIKit.h>
+    #import "NSIndexPathExtensions.swift"
+    #import "SGCellData.swift"
+    #import "SGColorPicker.swift"
+    #import "SGColorView.swift"
+    #import "SGCoreDataTableViewController.swift"
+    #import "SGCustomTableViewCell.swift"
+    #import "SGDynamicTableViewController.swift"
+    #import "SGViewController.swift"
 
+#elseif os(OSX)
+
+    // nothing yet.
+
+#else
+    println("ERROR: No platform.")
+#endif
+*/
