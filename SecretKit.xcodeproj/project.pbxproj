@@ -32,7 +32,6 @@
 		3B412E9D1C72A5690073441D /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B412E8A1C72A5690073441D /* TextFieldCell.xib */; };
 		3B412E9E1C72A5690073441D /* TextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B412E8B1C72A5690073441D /* TextViewCell.xib */; };
 		3B412E9F1C72A5690073441D /* TimePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B412E8C1C72A5690073441D /* TimePickerCell.xib */; };
-		3B412ECE1C72ADDB0073441D /* SecretKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B412EC81C72ADDB0073441D /* SecretKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3B412ECF1C72ADDB0073441D /* SGData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412EC91C72ADDB0073441D /* SGData.swift */; };
 		3B412ED01C72ADDB0073441D /* SGData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412EC91C72ADDB0073441D /* SGData.swift */; };
 		3B412ED11C72ADDB0073441D /* SGFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412ECA1C72ADDB0073441D /* SGFormatter.swift */; };
@@ -41,7 +40,27 @@
 		3B412ED41C72ADDB0073441D /* SGInvocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412ECB1C72ADDB0073441D /* SGInvocation.swift */; };
 		3B412ED51C72ADDB0073441D /* SGUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412ECC1C72ADDB0073441D /* SGUtilities.swift */; };
 		3B412ED61C72ADDB0073441D /* SGUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412ECC1C72ADDB0073441D /* SGUtilities.swift */; };
-		3B412EDA1C72B8CF0073441D /* SecretKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B412E701C7294BD0073441D /* SecretKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B95DE761C74A4540034667C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95DE751C74A4540034667C /* AppDelegate.swift */; };
+		3B95DE781C74A4540034667C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B95DE771C74A4540034667C /* Assets.xcassets */; };
+		3B95DE7B1C74A4540034667C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B95DE791C74A4540034667C /* MainMenu.xib */; };
+		3B95DE801C74A4690034667C /* SecretKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B412EA51C72A9DC0073441D /* SecretKit.framework */; };
+		3B95DE811C74A5390034667C /* SGData.swift in Headers */ = {isa = PBXBuildFile; fileRef = 3B412EC91C72ADDB0073441D /* SGData.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B95DE821C74A5390034667C /* SGFormatter.swift in Headers */ = {isa = PBXBuildFile; fileRef = 3B412ECA1C72ADDB0073441D /* SGFormatter.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B95DE831C74A5390034667C /* SGInvocation.swift in Headers */ = {isa = PBXBuildFile; fileRef = 3B412ECB1C72ADDB0073441D /* SGInvocation.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B95DE841C74A5390034667C /* SGUtilities.swift in Headers */ = {isa = PBXBuildFile; fileRef = 3B412ECC1C72ADDB0073441D /* SGUtilities.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BBE80061C73A88800EDB13A /* SGData.swift in Headers */ = {isa = PBXBuildFile; fileRef = 3B412EC91C72ADDB0073441D /* SGData.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BBE80071C73A88800EDB13A /* SGFormatter.swift in Headers */ = {isa = PBXBuildFile; fileRef = 3B412ECA1C72ADDB0073441D /* SGFormatter.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BBE80081C73A88800EDB13A /* SGInvocation.swift in Headers */ = {isa = PBXBuildFile; fileRef = 3B412ECB1C72ADDB0073441D /* SGInvocation.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BBE80091C73A88800EDB13A /* SGUtilities.swift in Headers */ = {isa = PBXBuildFile; fileRef = 3B412ECC1C72ADDB0073441D /* SGUtilities.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BC23BA01C73B1CD00675B92 /* NSIndexPathExtensions.swift in Headers */ = {isa = PBXBuildFile; fileRef = 3B412E7A1C72A5690073441D /* NSIndexPathExtensions.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BC23BA11C73B1CD00675B92 /* SGCellData.swift in Headers */ = {isa = PBXBuildFile; fileRef = 3B412E7B1C72A5690073441D /* SGCellData.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BC23BA21C73B1CD00675B92 /* SGColorPicker.swift in Headers */ = {isa = PBXBuildFile; fileRef = 3B412E7C1C72A5690073441D /* SGColorPicker.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BC23BA31C73B1CD00675B92 /* SGColorView.swift in Headers */ = {isa = PBXBuildFile; fileRef = 3B412E7D1C72A5690073441D /* SGColorView.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BC23BA41C73B1CD00675B92 /* SGCoreDataTableViewController.swift in Headers */ = {isa = PBXBuildFile; fileRef = 3B412E7E1C72A5690073441D /* SGCoreDataTableViewController.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BC23BA51C73B1CD00675B92 /* SGCustomTableViewCell.swift in Headers */ = {isa = PBXBuildFile; fileRef = 3B412E7F1C72A5690073441D /* SGCustomTableViewCell.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BC23BA61C73B1CD00675B92 /* SGDynamicTableViewController.swift in Headers */ = {isa = PBXBuildFile; fileRef = 3B412E801C72A5690073441D /* SGDynamicTableViewController.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BC23BA71C73B1CD00675B92 /* SGViewController.swift in Headers */ = {isa = PBXBuildFile; fileRef = 3B412E811C72A5690073441D /* SGViewController.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BD62FDC1C73ADDD00AF897B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD62FDB1C73ADDD00AF897B /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,7 +73,6 @@
 		3B279E571C739D0D00DB0F5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B279E591C739D0D00DB0F5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B412E6D1C7294BD0073441D /* SecretKitTouch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SecretKitTouch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B412E701C7294BD0073441D /* SecretKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecretKit.h; sourceTree = "<group>"; };
 		3B412E791C72A5690073441D /* Info-ios.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-ios.plist"; sourceTree = "<group>"; };
 		3B412E7A1C72A5690073441D /* NSIndexPathExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSIndexPathExtensions.swift; sourceTree = "<group>"; };
 		3B412E7B1C72A5690073441D /* SGCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGCellData.swift; sourceTree = "<group>"; };
@@ -76,7 +94,6 @@
 		3B412E8C1C72A5690073441D /* TimePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimePickerCell.xib; sourceTree = "<group>"; };
 		3B412EA51C72A9DC0073441D /* SecretKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SecretKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B412EB11C72ACA70073441D /* Info-osx.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-osx.plist"; sourceTree = "<group>"; };
-		3B412EC81C72ADDB0073441D /* SecretKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecretKit.h; sourceTree = "<group>"; };
 		3B412EC91C72ADDB0073441D /* SGData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGData.swift; sourceTree = "<group>"; };
 		3B412ECA1C72ADDB0073441D /* SGFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGFormatter.swift; sourceTree = "<group>"; };
 		3B412ECB1C72ADDB0073441D /* SGInvocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGInvocation.swift; sourceTree = "<group>"; };
@@ -84,6 +101,12 @@
 		3B8972EA1C73902400FDDC3C /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		3B8972EB1C73902400FDDC3C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3B8972EC1C73902400FDDC3C /* SecretKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = SecretKit.podspec; sourceTree = "<group>"; };
+		3B95DE731C74A4540034667C /* SecretKitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecretKitTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B95DE751C74A4540034667C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3B95DE771C74A4540034667C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3B95DE7A1C74A4540034667C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		3B95DE7C1C74A4540034667C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BD62FDB1C73ADDD00AF897B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BD62FDC1C73ADDD00AF897B /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +130,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B95DE701C74A4540034667C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B95DE801C74A4690034667C /* SecretKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,9 +161,11 @@
 		3B412E631C7294BD0073441D = {
 			isa = PBXGroup;
 			children = (
-				3B8972E91C73901600FDDC3C /* Files */,
+				3B8972E91C73901600FDDC3C /* Supporting Files */,
 				3B412E6F1C7294BD0073441D /* SecretKit */,
 				3B279E4A1C739D0D00DB0F5F /* SecretKitTouchTest */,
+				3B95DE741C74A4540034667C /* SecretKitTest */,
+				3BC23B9F1C73B18600675B92 /* Libraries */,
 				3B412E6E1C7294BD0073441D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -142,6 +176,7 @@
 				3B412E6D1C7294BD0073441D /* SecretKitTouch.framework */,
 				3B412EA51C72A9DC0073441D /* SecretKit.framework */,
 				3B279E491C739D0D00DB0F5F /* SecretKitTouchTest.app */,
+				3B95DE731C74A4540034667C /* SecretKitTest.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -149,8 +184,6 @@
 		3B412E6F1C7294BD0073441D /* SecretKit */ = {
 			isa = PBXGroup;
 			children = (
-				3B412E701C7294BD0073441D /* SecretKit.h */,
-				3B412EC81C72ADDB0073441D /* SecretKit.h */,
 				3B412EC91C72ADDB0073441D /* SGData.swift */,
 				3B412ECA1C72ADDB0073441D /* SGFormatter.swift */,
 				3B412ECB1C72ADDB0073441D /* SGInvocation.swift */,
@@ -203,14 +236,33 @@
 			path = osx;
 			sourceTree = "<group>";
 		};
-		3B8972E91C73901600FDDC3C /* Files */ = {
+		3B8972E91C73901600FDDC3C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				3B8972EC1C73902400FDDC3C /* SecretKit.podspec */,
 				3B8972EB1C73902400FDDC3C /* README.md */,
 				3B8972EA1C73902400FDDC3C /* LICENSE */,
 			);
-			name = Files;
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3B95DE741C74A4540034667C /* SecretKitTest */ = {
+			isa = PBXGroup;
+			children = (
+				3B95DE751C74A4540034667C /* AppDelegate.swift */,
+				3B95DE771C74A4540034667C /* Assets.xcassets */,
+				3B95DE791C74A4540034667C /* MainMenu.xib */,
+				3B95DE7C1C74A4540034667C /* Info.plist */,
+			);
+			path = SecretKitTest;
+			sourceTree = "<group>";
+		};
+		3BC23B9F1C73B18600675B92 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				3BD62FDB1C73ADDD00AF897B /* CoreData.framework */,
+			);
+			name = Libraries;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,7 +272,18 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B412EDA1C72B8CF0073441D /* SecretKit.h in Headers */,
+				3BBE80061C73A88800EDB13A /* SGData.swift in Headers */,
+				3BBE80071C73A88800EDB13A /* SGFormatter.swift in Headers */,
+				3BBE80081C73A88800EDB13A /* SGInvocation.swift in Headers */,
+				3BBE80091C73A88800EDB13A /* SGUtilities.swift in Headers */,
+				3BC23BA01C73B1CD00675B92 /* NSIndexPathExtensions.swift in Headers */,
+				3BC23BA11C73B1CD00675B92 /* SGCellData.swift in Headers */,
+				3BC23BA21C73B1CD00675B92 /* SGColorPicker.swift in Headers */,
+				3BC23BA31C73B1CD00675B92 /* SGColorView.swift in Headers */,
+				3BC23BA41C73B1CD00675B92 /* SGCoreDataTableViewController.swift in Headers */,
+				3BC23BA51C73B1CD00675B92 /* SGCustomTableViewCell.swift in Headers */,
+				3BC23BA61C73B1CD00675B92 /* SGDynamicTableViewController.swift in Headers */,
+				3BC23BA71C73B1CD00675B92 /* SGViewController.swift in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,7 +291,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B412ECE1C72ADDB0073441D /* SecretKit.h in Headers */,
+				3B95DE811C74A5390034667C /* SGData.swift in Headers */,
+				3B95DE821C74A5390034667C /* SGFormatter.swift in Headers */,
+				3B95DE831C74A5390034667C /* SGInvocation.swift in Headers */,
+				3B95DE841C74A5390034667C /* SGUtilities.swift in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +354,23 @@
 			productReference = 3B412EA51C72A9DC0073441D /* SecretKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		3B95DE721C74A4540034667C /* SecretKitTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B95DE7F1C74A4540034667C /* Build configuration list for PBXNativeTarget "SecretKitTest" */;
+			buildPhases = (
+				3B95DE6F1C74A4540034667C /* Sources */,
+				3B95DE701C74A4540034667C /* Frameworks */,
+				3B95DE711C74A4540034667C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SecretKitTest;
+			productName = SecretKitTest;
+			productReference = 3B95DE731C74A4540034667C /* SecretKitTest.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -307,6 +390,9 @@
 					3B412EA41C72A9DC0073441D = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
+					3B95DE721C74A4540034667C = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
 				};
 			};
 			buildConfigurationList = 3B412E671C7294BD0073441D /* Build configuration list for PBXProject "SecretKit" */;
@@ -322,8 +408,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3B412E6C1C7294BD0073441D /* SecretKitTouch */,
 				3B412EA41C72A9DC0073441D /* SecretKit */,
+				3B412E6C1C7294BD0073441D /* SecretKitTouch */,
+				3B95DE721C74A4540034667C /* SecretKitTest */,
 				3B279E481C739D0D00DB0F5F /* SecretKitTouchTest */,
 			);
 		};
@@ -361,6 +448,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B95DE711C74A4540034667C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B95DE781C74A4540034667C /* Assets.xcassets in Resources */,
+				3B95DE7B1C74A4540034667C /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +503,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3B95DE6F1C74A4540034667C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B95DE761C74A4540034667C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -424,6 +528,14 @@
 				3B279E571C739D0D00DB0F5F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		3B95DE791C74A4540034667C /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3B95DE7A1C74A4540034667C /* Base */,
+			);
+			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -457,7 +569,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -505,7 +616,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -547,6 +657,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/SecretKit/ios/Info-ios.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -563,6 +674,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/SecretKit/ios/Info-ios.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -575,13 +687,13 @@
 		3B412EAB1C72A9DC0073441D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "$(SRCROOT)/SecretKit/osx/Info-osx.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -598,13 +710,13 @@
 		3B412EAC1C72A9DC0073441D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "$(SRCROOT)/SecretKit/osx/Info-osx.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -614,6 +726,36 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		3B95DE7D1C74A4540034667C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SecretKitTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.secretgeometry.SecretKitTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		3B95DE7E1C74A4540034667C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SecretKitTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.secretgeometry.SecretKitTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -627,6 +769,7 @@
 				3B279E5B1C739D0D00DB0F5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3B412E671C7294BD0073441D /* Build configuration list for PBXProject "SecretKit" */ = {
 			isa = XCConfigurationList;
@@ -654,6 +797,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		3B95DE7F1C74A4540034667C /* Build configuration list for PBXNativeTarget "SecretKitTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B95DE7D1C74A4540034667C /* Debug */,
+				3B95DE7E1C74A4540034667C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

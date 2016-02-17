@@ -8,7 +8,7 @@
 
 import Foundation
 
-let BASIC_CELL_ID        = "BasicCell"
+public let BASIC_CELL_ID        = "BasicCell"
 let LABEL_CELL_ID        = "LabelCell"
 let TEXT_FIELD_CELL_ID   = "TextFieldCell"
 let SWITCH_CELL_ID       = "SwitchCell"

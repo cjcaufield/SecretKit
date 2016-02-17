@@ -1,25 +1,30 @@
-Pod::Spec.new do |s|
+Pod::Spec.new do |spec|
 
-s.platform = :ios
-s.ios.deployment_target = '9.0'
-s.name = "SecretKit"
-s.summary = "Cocoa classes for iOS and OSX."
-s.requires_arc = true
+    spec.name = "SecretKit"
+    spec.summary = "Cocoa classes for iOS and OSX."
 
-s.version = "0.1.3"
+    spec.version = "0.1.4"
 
-s.license = { :type => "MIT", :file => "LICENSE" }
+    spec.ios.deployment_target = '9.0'
+    spec.osx.deployment_target = '10.11'
 
-s.author = { "Colin Caufield" => "cjcaufield@gmail.com" }
+    spec.requires_arc = true
 
-s.homepage = "https://github.com/cjcaufield/SecretKit"
+    spec.license = { :type => "MIT", :file => "LICENSE" }
 
-s.source = { :git => "https://github.com/cjcaufield/SecretKit.git", :tag => "#{s.version}" }
+    spec.author = { "Colin Caufield" => "cjcaufield@gmail.com" }
 
-s.framework = "UIKit"
+    spec.homepage = "https://github.com/cjcaufield/SecretKit"
 
-s.source_files = "SecretKit/**/*.{swift,h}"
+    spec.source = { :git => "https://github.com/cjcaufield/SecretKit.git", :tag => "#{spec.version}" }
 
-s.resources = "SecretKit/**/*.{png,jpeg,jpg,storyboard,xib}"
+    spec.ios.frameworks = "UIKit", "CoreData"
+    spec.osx.framework = "Cocoa", "CoreData"
+
+    spec.ios.source_files = "SecretKit/*.{swift}", "SecretKit/ios/*.{swift}"
+    spec.osx.source_files = "SecretKit/*.{swift}", "SecretKit/osx/*.{swift}"
+
+    spec.ios.resources = "SecretKit/**/*.{png,jpeg,jpg,storyboard,xib}"
+    spec.osx.resources = "SecretKit/**/*.{png,jpeg,jpg,xib}"
 
 end
