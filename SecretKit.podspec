@@ -3,7 +3,7 @@ Pod::Spec.new do |spec|
 spec.name = "SecretKit"
 spec.summary = "Cocoa classes for iOS and OSX."
 
-spec.version = "0.1.4"
+spec.version = "0.1.5"
 
 spec.ios.deployment_target = '9.0'
 spec.osx.deployment_target = '10.11'
