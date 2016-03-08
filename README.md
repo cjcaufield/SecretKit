@@ -1,2 +1,2 @@
 # SecretKit
-Cocoa classes for iOS and OSX.
+Rapid app development classes for iOS and OSX.
