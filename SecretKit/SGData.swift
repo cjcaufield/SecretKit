@@ -15,21 +15,21 @@ import CoreData
 
 private var _shared: SGData? = nil
 
-let CloudDataDidChangeNotification  = "CloudDataDidChangeNotification"
+public let CloudDataDidChangeNotification  = "CloudDataDidChangeNotification"
 
-class SGData: NSObject {
+public class SGData: NSObject {
     
-    var name = "Data"
-    var useCloud = false
+    public var name = "Data"
+    public var useCloud = false
     
-    class var shared: SGData {
+    public class var shared: SGData {
         if (_shared == nil) {
             _shared = SGData(name: "Data")
         }
         return _shared!
     }
     
-    init(name: String, useCloud: Bool = false) {
+    public init(name: String, useCloud: Bool = false) {
         super.init()
         assert(_shared == nil)
         _shared = self
@@ -43,11 +43,11 @@ class SGData: NSObject {
         self.unregisterCloudStoreObserver(self)
     }
     
-    var center: NSNotificationCenter {
+    public var center: NSNotificationCenter {
         return NSNotificationCenter.defaultCenter()
     }
     
-    func registerCloudStoreObserver(observer: AnyObject) {
+    public func registerCloudStoreObserver(observer: AnyObject) {
         
         if !self.useCloud { return }
         
@@ -70,7 +70,7 @@ class SGData: NSObject {
             object: self.persistentStoreCoordinator)
     }
     
-    func unregisterCloudStoreObserver(observer: AnyObject) {
+    public func unregisterCloudStoreObserver(observer: AnyObject) {
         
         if !self.useCloud { return }
         
@@ -90,7 +90,7 @@ class SGData: NSObject {
             object: self.persistentStoreCoordinator)
     }
     
-    func registerCloudDataObserver(observer: AnyObject) {
+    public func registerCloudDataObserver(observer: AnyObject) {
         self.center.addObserver(
             observer,
             selector: "cloudDataDidChange:",
@@ -98,14 +98,14 @@ class SGData: NSObject {
             object: nil)
     }
     
-    func unregisterCloudDataObserver(observer: AnyObject) {
+    public func unregisterCloudDataObserver(observer: AnyObject) {
         self.center.removeObserver(
             observer,
             name: CloudDataDidChangeNotification,
             object: nil)
     }
     
-    func cloudStoreWillChange(note: NSNotification) {
+    public func cloudStoreWillChange(note: NSNotification) {
         
         print("Data.cloudStoreWillChange \(note)")
         //UIApplication.sharedApplication().beginIgnoringInteractionEvents()
@@ -121,7 +121,7 @@ class SGData: NSObject {
         }
     }
     
-    func cloudStoreDidChange(note: NSNotification) {
+    public func cloudStoreDidChange(note: NSNotification) {
         
         print("Data.cloudStoreDidChange \(note)")
         
@@ -137,7 +137,7 @@ class SGData: NSObject {
         //UIApplication.sharedApplication().endIgnoringInteractionEvents()
     }
     
-    func cloudStoreDidImport(note: NSNotification) {
+    public func cloudStoreDidImport(note: NSNotification) {
         
         print("Data.cloudStoreDidImport \(note)")
         
@@ -151,11 +151,11 @@ class SGData: NSObject {
         }
     }
 
-    func insertNewObject(entityName: String) -> AnyObject {
+    public func insertNewObject(entityName: String) -> AnyObject {
         return NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext: self.context!)
     }
     
-    func uniqueDeviceString() -> String {
+    public func uniqueDeviceString() -> String {
         
         #if os(iOS)
             let isPhone = (UIDevice.currentDevice().userInterfaceIdiom == .Phone)
@@ -168,15 +168,15 @@ class SGData: NSObject {
         #endif
     }
     
-    func refreshProperties() {
+    public func refreshProperties() {
         // empty
     }
     
-    func deduplicate() {
+    public func deduplicate() {
         // empty
     }
     
-    func save() {
+    public func save() {
         
         print("*** SAVING")
         
@@ -203,30 +203,30 @@ class SGData: NSObject {
         print("*** SAVED")
     }
     
-    func fetchRequest(entityName: String, predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor] = []) -> NSFetchRequest {
+    public func fetchRequest(entityName: String, predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor] = []) -> NSFetchRequest {
         let request = NSFetchRequest(entityName: entityName)
         request.predicate = predicate
         request.sortDescriptors = sortDescriptors
         return request
     }
     
-    func fetchObject(request: NSFetchRequest) -> AnyObject? {
+    public func fetchObject(request: NSFetchRequest) -> AnyObject? {
         return self.fetchObjects(request).first
     }
     
-    func fetchObject(entityName: String, predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor] = []) -> AnyObject? {
+    public func fetchObject(entityName: String, predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor] = []) -> AnyObject? {
         let request = self.fetchRequest(entityName, predicate: predicate, sortDescriptors: sortDescriptors)
         return self.fetchObject(request)
     }
     
-    func fetchObjectNamed(name: String, entityName: String, predicate: NSPredicate? = nil) -> AnyObject? {
+    public func fetchObjectNamed(name: String, entityName: String, predicate: NSPredicate? = nil) -> AnyObject? {
         let namePredicate = NSPredicate(format: "(name = %@)", name)
         let predicate = self.andPredicates([namePredicate, predicate])
         let request = self.fetchRequest(entityName, predicate: predicate)
         return self.fetchObject(request)
     }
     
-    func fetchObjects(request: NSFetchRequest) -> [AnyObject] {
+    public func fetchObjects(request: NSFetchRequest) -> [AnyObject] {
         let objects: [AnyObject]?
         do {
             objects = try self.context!.executeFetchRequest(request)
@@ -239,12 +239,12 @@ class SGData: NSObject {
         return objects ?? []
     }
     
-    func fetchObjects(entityName: String, predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor] = []) -> [AnyObject] {
+    public func fetchObjects(entityName: String, predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor] = []) -> [AnyObject] {
         let request = self.fetchRequest(entityName, predicate: predicate, sortDescriptors: sortDescriptors)
         return self.fetchObjects(request)
     }
     
-    func nextAvailableName(desiredName: String, entityName: String, predicate: NSPredicate? = nil) -> String {
+    public func nextAvailableName(desiredName: String, entityName: String, predicate: NSPredicate? = nil) -> String {
         
         var name = ""
         var index = 1
@@ -261,7 +261,7 @@ class SGData: NSObject {
         return name
     }
     
-    func nullablePredicate(name: String, object: AnyObject?) -> NSPredicate {
+    public func nullablePredicate(name: String, object: AnyObject?) -> NSPredicate {
         if object != nil {
             let format = "\(name) = %@"
             return NSPredicate(format: format, argumentArray: [object!])
@@ -271,7 +271,7 @@ class SGData: NSObject {
         }
     }
     
-    func booleanPredicate(name: String, value: Bool) -> NSPredicate {
+    public func booleanPredicate(name: String, value: Bool) -> NSPredicate {
         if value {
             let format = "\(name) = true"
             return NSPredicate(format: format)
@@ -281,7 +281,7 @@ class SGData: NSObject {
         }
     }
     
-    func andPredicates(predicates: [NSPredicate?]) -> NSPredicate {
+    public func andPredicates(predicates: [NSPredicate?]) -> NSPredicate {
         
         var finalPredicate: NSPredicate?
         for possiblePredicate in predicates {
@@ -298,21 +298,21 @@ class SGData: NSObject {
         return finalPredicate!
     }
     
-    lazy var applicationDocumentsDirectory: NSURL = {
+    public lazy var applicationDocumentsDirectory: NSURL = {
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         return urls[urls.count - 1] as NSURL
     }()
     
-    lazy var cloudDirectory: NSURL? = {
+    public lazy var cloudDirectory: NSURL? = {
         return NSFileManager.defaultManager().URLForUbiquityContainerIdentifier(nil)
     }()
     
-    lazy var managedObjectModel: NSManagedObjectModel = {
+    public lazy var managedObjectModel: NSManagedObjectModel = {
         let modelURL = NSBundle.mainBundle().URLForResource(self.name, withExtension: "momd")!
         return NSManagedObjectModel(contentsOfURL: modelURL)!
     }()
     
-    lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
+    public lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
         
         var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         let filename = self.name + ".sqlite"
@@ -362,7 +362,7 @@ class SGData: NSObject {
         return coordinator
     }()
     
-    lazy var context: NSManagedObjectContext? = {
+    public lazy var context: NSManagedObjectContext? = {
         
         let coordinator = self.persistentStoreCoordinator
         if coordinator == nil {

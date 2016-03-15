@@ -8,9 +8,9 @@
 
 import UIKit
 
-class CustomTableViewCell: UITableViewCell {
+public class SGCustomTableViewCell: UITableViewCell {
 
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         if self.contentView.respondsToSelector("setPreservesSuperviewLayoutMargins:") {
             self.contentView.preservesSuperviewLayoutMargins = true;

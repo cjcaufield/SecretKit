@@ -9,49 +9,49 @@
 import Foundation
 
 public let BASIC_CELL_ID        = "BasicCell"
-let LABEL_CELL_ID        = "LabelCell"
-let TEXT_FIELD_CELL_ID   = "TextFieldCell"
-let SWITCH_CELL_ID       = "SwitchCell"
-let SLIDER_CELL_ID       = "SliderCell"
-let TIME_LABEL_CELL_ID   = "TimeLabelCell"
-let TIME_PICKER_CELL_ID  = "TimePickerCell"
-let PICKER_LABEL_CELL_ID = "PickerLabelCell"
-let PICKER_CELL_ID       = "PickerCell"
-let DATE_LABEL_CELL_ID   = "DateLabelCell"
-let DATE_PICKER_CELL_ID  = "DatePickerCell"
-let SEGMENTED_CELL_ID    = "SegmentedCell"
-let TEXT_VIEW_CELL_ID    = "TextViewCell"
-let COLOR_CELL_ID        = "ColorCell"
-let OTHER_CELL_ID        = "OtherCell"
+public let LABEL_CELL_ID        = "LabelCell"
+public let TEXT_FIELD_CELL_ID   = "TextFieldCell"
+public let SWITCH_CELL_ID       = "SwitchCell"
+public let SLIDER_CELL_ID       = "SliderCell"
+public let TIME_LABEL_CELL_ID   = "TimeLabelCell"
+public let TIME_PICKER_CELL_ID  = "TimePickerCell"
+public let PICKER_LABEL_CELL_ID = "PickerLabelCell"
+public let PICKER_CELL_ID       = "PickerCell"
+public let DATE_LABEL_CELL_ID   = "DateLabelCell"
+public let DATE_PICKER_CELL_ID  = "DatePickerCell"
+public let SEGMENTED_CELL_ID    = "SegmentedCell"
+public let TEXT_VIEW_CELL_ID    = "TextViewCell"
+public let COLOR_CELL_ID        = "ColorCell"
+public let OTHER_CELL_ID        = "OtherCell"
 
-enum SGRowDataTargetType {
+public enum SGRowDataTargetType {
     case ViewController
     case Object
 }
 
-class SGRowData: Equatable {
+public class SGRowData: Equatable {
     
-    var cellIdentifier: String
-    var title: String
-    var modelPath: String?
-    var targetType: SGRowDataTargetType
-    var action: Selector?
-    var segueName: String?
-    var checked: Bool?
-    var range: NSRange
-    var expandable = false
-    var hidden = false
+    public var cellIdentifier: String
+    public var title: String
+    public var modelPath: String?
+    public var targetType: SGRowDataTargetType
+    public var action: Selector?
+    public var segueName: String?
+    public var checked: Bool?
+    public var range: NSRange
+    public var expandable = false
+    public var hidden = false
     
-    init(cellIdentifier: String = OTHER_CELL_ID,
-         title: String = "",
-         modelPath: String? = nil,
-         targetType: SGRowDataTargetType = .Object,
-         action: Selector? = nil,
-         segueName: String? = nil,
-         checked: Bool? = nil,
-         range: NSRange = NSMakeRange(0, 1),
-         expandable: Bool = false,
-         hidden: Bool = false) {
+    public init(cellIdentifier: String = OTHER_CELL_ID,
+                title: String = "",
+                modelPath: String? = nil,
+                targetType: SGRowDataTargetType = .Object,
+                action: Selector? = nil,
+                segueName: String? = nil,
+                checked: Bool? = nil,
+                range: NSRange = NSMakeRange(0, 1),
+                expandable: Bool = false,
+                hidden: Bool = false) {
             
         self.cellIdentifier = cellIdentifier
         self.title = title
@@ -66,17 +66,17 @@ class SGRowData: Equatable {
     }
 }
 
-func ==(a: SGRowData, b: SGRowData) -> Bool {
+public func ==(a: SGRowData, b: SGRowData) -> Bool {
     return ObjectIdentifier(a) == ObjectIdentifier(b)
 }
 
-class SGSliderRowData : SGRowData {
+public class SGSliderRowData : SGRowData {
     
     /*
-    init(title: String = "",
-         targetType: SGRowDataTargetType = .Object,
-         modelPath: String? = nil,
-         range: NSRange = NSMakeRange(0, 1)) {
+    public init(title: String = "",
+                targetType: SGRowDataTargetType = .Object,
+                modelPath: String? = nil,
+                range: NSRange = NSMakeRange(0, 1)) {
         
         super.init(cellIdentifier: SLIDER_CELL_ID,
                    title: title,
@@ -88,25 +88,25 @@ class SGSliderRowData : SGRowData {
     */
 }
 
-class SGSectionData {
+public class SGSectionData {
     
-    var rows = [SGRowData]()
-    var title = ""
+    public var rows = [SGRowData]()
+    public var title = ""
     
-    init(_ rows: SGRowData..., title: String = "") {
+    public init(_ rows: SGRowData..., title: String = "") {
         self.rows = rows
     }
 }
 
-class SGTableData {
+public class SGTableData {
     
-    var sections = [SGSectionData]()
+    public var sections = [SGSectionData]()
     
-    init() {
+    public init() {
         // nothing
     }
     
-    init(_ sections: SGSectionData...) {
+    public init(_ sections: SGSectionData...) {
         self.sections = sections
     }
 }

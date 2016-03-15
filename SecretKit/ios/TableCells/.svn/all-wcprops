@@ -1,65 +1,65 @@
 K 25
 svn:wc:ra_dav:version-url
-V 65
-/!svn/ver/2090/TermKit/TermKitTouchTestSwift/SecretKit/TableCells
+V 49
+/!svn/ver/2114/SecretKit/SecretKit/ios/TableCells
 END
 ColorCell.xib
 K 25
 svn:wc:ra_dav:version-url
-V 79
-/!svn/ver/2090/TermKit/TermKitTouchTestSwift/SecretKit/TableCells/ColorCell.xib
+V 63
+/!svn/ver/2114/SecretKit/SecretKit/ios/TableCells/ColorCell.xib
 END
 LabelCell.xib
 K 25
 svn:wc:ra_dav:version-url
-V 79
-/!svn/ver/2090/TermKit/TermKitTouchTestSwift/SecretKit/TableCells/LabelCell.xib
+V 63
+/!svn/ver/2114/SecretKit/SecretKit/ios/TableCells/LabelCell.xib
 END
 TextViewCell.xib
 K 25
 svn:wc:ra_dav:version-url
-V 82
-/!svn/ver/2090/TermKit/TermKitTouchTestSwift/SecretKit/TableCells/TextViewCell.xib
+V 66
+/!svn/ver/2114/SecretKit/SecretKit/ios/TableCells/TextViewCell.xib
 END
 SwitchCell.xib
 K 25
 svn:wc:ra_dav:version-url
-V 80
-/!svn/ver/2090/TermKit/TermKitTouchTestSwift/SecretKit/TableCells/SwitchCell.xib
+V 64
+/!svn/ver/2114/SecretKit/SecretKit/ios/TableCells/SwitchCell.xib
 END
 SliderCell.xib
 K 25
 svn:wc:ra_dav:version-url
-V 80
-/!svn/ver/2090/TermKit/TermKitTouchTestSwift/SecretKit/TableCells/SliderCell.xib
+V 64
+/!svn/ver/2114/SecretKit/SecretKit/ios/TableCells/SliderCell.xib
 END
 TextFieldCell.xib
 K 25
 svn:wc:ra_dav:version-url
-V 83
-/!svn/ver/2090/TermKit/TermKitTouchTestSwift/SecretKit/TableCells/TextFieldCell.xib
+V 67
+/!svn/ver/2114/SecretKit/SecretKit/ios/TableCells/TextFieldCell.xib
 END
 DatePickerCell.xib
 K 25
 svn:wc:ra_dav:version-url
-V 84
-/!svn/ver/2090/TermKit/TermKitTouchTestSwift/SecretKit/TableCells/DatePickerCell.xib
+V 68
+/!svn/ver/2114/SecretKit/SecretKit/ios/TableCells/DatePickerCell.xib
 END
 SegmentedCell.xib
 K 25
 svn:wc:ra_dav:version-url
-V 83
-/!svn/ver/2090/TermKit/TermKitTouchTestSwift/SecretKit/TableCells/SegmentedCell.xib
+V 67
+/!svn/ver/2114/SecretKit/SecretKit/ios/TableCells/SegmentedCell.xib
 END
 TimePickerCell.xib
 K 25
 svn:wc:ra_dav:version-url
-V 84
-/!svn/ver/2090/TermKit/TermKitTouchTestSwift/SecretKit/TableCells/TimePickerCell.xib
+V 68
+/!svn/ver/2114/SecretKit/SecretKit/ios/TableCells/TimePickerCell.xib
 END
 PickerCell.xib
 K 25
 svn:wc:ra_dav:version-url
-V 80
-/!svn/ver/2090/TermKit/TermKitTouchTestSwift/SecretKit/TableCells/PickerCell.xib
+V 64
+/!svn/ver/2114/SecretKit/SecretKit/ios/TableCells/PickerCell.xib
 END

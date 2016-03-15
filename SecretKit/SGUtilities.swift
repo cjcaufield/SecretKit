@@ -19,7 +19,7 @@ public func removeNils<T>(array: [T?]) -> [T] {
     return newArray
 }
 
-func safeCompare<T>(a: T?, b: T?, fn: (T, T) -> T) -> T? {
+public func safeCompare<T>(a: T?, b: T?, fn: (T, T) -> T) -> T? {
     
     let items = removeNils([a, b])
     switch items.count {
@@ -29,15 +29,15 @@ func safeCompare<T>(a: T?, b: T?, fn: (T, T) -> T) -> T? {
     }
 }
 
-func safeMin<T: Comparable>(a: T?, b: T?) -> T? {
+public func safeMin<T: Comparable>(a: T?, b: T?) -> T? {
     return safeCompare(a, b: b, fn: min)
 }
 
-func safeMax<T: Comparable>(a: T?, b: T?) -> T? {
+public func safeMax<T: Comparable>(a: T?, b: T?) -> T? {
     return safeCompare(a, b: b, fn: max)
 }
 
-func safeEarliestDate(dates: [NSDate?]) -> NSDate? {
+public func safeEarliestDate(dates: [NSDate?]) -> NSDate? {
     
     var earliest: NSDate?
     for date in removeNils(dates) {
@@ -55,13 +55,13 @@ func safeEarliestDate(dates: [NSDate?]) -> NSDate? {
     import CoreGraphics
     import UIKit
 
-    func getRGBAForColor(color: UIColor) -> [CGFloat] {
+    public func getRGBAForColor(color: UIColor) -> [CGFloat] {
         var rgba: [CGFloat] = [ 0, 0, 0, 0 ]
         color.getRed(&rgba[0], green: &rgba[1], blue: &rgba[2], alpha: &rgba[3])
         return rgba
     }
 
-    func getColorForRGBA(rgba: [CGFloat]) -> UIColor {
+    public func getColorForRGBA(rgba: [CGFloat]) -> UIColor {
         let a = (rgba.count < 3) ? 1.0 : rgba[3]
         return UIColor(red: rgba[0], green: rgba[1], blue: rgba[2], alpha: a)
     }

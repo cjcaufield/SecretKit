@@ -9,9 +9,9 @@
 import UIKit
 import CoreData
 
-class SGCoreDataTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+public class SGCoreDataTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         
         super.viewDidLoad()
         
@@ -32,60 +32,60 @@ class SGCoreDataTableViewController: UITableViewController, NSFetchedResultsCont
     
     // MARK: - Methods to override.
     
-    var needsBackButton: Bool { return false }
+    public var needsBackButton: Bool { return false }
     
-    var fetchPredicate: NSPredicate? { return nil }
+    public var fetchPredicate: NSPredicate? { return nil }
     
-    var fetchBatchSize: Int { return 20 }
+    public var fetchBatchSize: Int { return 20 }
     
-    var sortDescriptors: [NSSortDescriptor] { return [] }
+    public var sortDescriptors: [NSSortDescriptor] { return [] }
     
-    var sectionKey: String? { return nil }
+    public var sectionKey: String? { return nil }
     
-    var headerHeight: CGFloat { return 0.0 }
+    public var headerHeight: CGFloat { return 0.0 }
     
-    var centerHeaderText: Bool { return false }
+    public var centerHeaderText: Bool { return false }
     
-    var cacheName: String? { return nil }
+    public var cacheName: String? { return nil }
     
-    var entityName: String {
+    public var entityName: String {
         assertionFailure("entityName must be overridden in SGCoreDataTableViewController subclasses.")
         return ""
     }
     
-    func cellIdentifierForObject(object: AnyObject) -> String {
+    public func cellIdentifierForObject(object: AnyObject) -> String {
         assertionFailure("cellIdentifierForObject must be overridden in SGCoreDataTableViewController subclasses.")
         return ""
     }
     
-    func createNewObject() -> NSManagedObject {
+    public func createNewObject() -> NSManagedObject {
         return NSEntityDescription.insertNewObjectForEntityForName(self.entityName, inManagedObjectContext: self.context!) as NSManagedObject
     }
     
-    func deleteObject(object: NSManagedObject) {
+    public func deleteObject(object: NSManagedObject) {
         self.context!.deleteObject(object)
         SGData.shared.save()
     }
     
-    func prepareNewObject(object: AnyObject) {
+    public func prepareNewObject(object: AnyObject) {
         // nothing
     }
     
-    func configureCell(cell: UITableViewCell, withObject object: AnyObject) {
+    public func configureCell(cell: UITableViewCell, withObject object: AnyObject) {
         // nothing
     }
     
-    func didSelectObject(object: AnyObject, new: Bool = false) {
+    public func didSelectObject(object: AnyObject, new: Bool = false) {
         // nothing
     }
     
-    func canEditObject(object: AnyObject) -> Bool {
+    public func canEditObject(object: AnyObject) -> Bool {
         return true
     }
     
     // MARK: - UITableViewController
     
-    @IBAction func add(sender: AnyObject?) {
+    @IBAction public func add(sender: AnyObject?) {
         
         let object = self.createNewObject()
         self.prepareNewObject(object)
@@ -97,29 +97,29 @@ class SGCoreDataTableViewController: UITableViewController, NSFetchedResultsCont
         SGData.shared.save()
     }
     
-    @IBAction func edit(sender: AnyObject?) {
+    @IBAction public func edit(sender: AnyObject?) {
         self.tableView.setEditing(!self.tableView.editing, animated: true)
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    public override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.fetchController.sections?.count ?? 0
     }
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    public override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return self.headerHeight
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    public override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let sectionInfo = self.fetchController.sections![section] as NSFetchedResultsSectionInfo
         return sectionInfo.name
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = self.fetchController.sections![section] as NSFetchedResultsSectionInfo
         return sectionInfo.numberOfObjects
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    public override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let object: AnyObject = self.fetchController.objectAtIndexPath(indexPath)
         let identifier = self.cellIdentifierForObject(object)
         let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as UITableViewCell
@@ -127,17 +127,17 @@ class SGCoreDataTableViewController: UITableViewController, NSFetchedResultsCont
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    public override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let object: AnyObject = self.fetchController.objectAtIndexPath(indexPath)
         self.didSelectObject(object)
     }
     
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    public override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         let object: AnyObject = self.fetchController.objectAtIndexPath(indexPath)
         return self.canEditObject(object)
     }
     
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    public override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             let object = self.fetchController.objectAtIndexPath(indexPath) as! NSManagedObject
             self.deleteObject(object)
@@ -146,7 +146,7 @@ class SGCoreDataTableViewController: UITableViewController, NSFetchedResultsCont
     
     // MARK: - NSFetchedResultsController
     
-    var fetchController: NSFetchedResultsController {
+    public var fetchController: NSFetchedResultsController {
         
         if self.fetchedResultsController != nil {
             return self.fetchedResultsController!
@@ -166,11 +166,11 @@ class SGCoreDataTableViewController: UITableViewController, NSFetchedResultsCont
         return self.fetchedResultsController!
     }
     
-    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+    public func controllerWillChangeContent(controller: NSFetchedResultsController) {
         self.tableView.beginUpdates()
     }
     
-    func controller(controller: NSFetchedResultsController,
+    public func controller(controller: NSFetchedResultsController,
                     didChangeSection sectionInfo: NSFetchedResultsSectionInfo,
                     atIndex sectionIndex: Int,
                     forChangeType type: NSFetchedResultsChangeType) {
@@ -188,7 +188,7 @@ class SGCoreDataTableViewController: UITableViewController, NSFetchedResultsCont
         }
     }
     
-    func controller(controller: NSFetchedResultsController,
+    public func controller(controller: NSFetchedResultsController,
                     didChangeObject anObject: AnyObject,
                     atIndexPath indexPath: NSIndexPath?,
                     forChangeType type: NSFetchedResultsChangeType,
@@ -214,7 +214,7 @@ class SGCoreDataTableViewController: UITableViewController, NSFetchedResultsCont
         }
     }
     
-    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+    public func controllerDidChangeContent(controller: NSFetchedResultsController) {
         
         self.tableView.endUpdates()
         
@@ -225,23 +225,23 @@ class SGCoreDataTableViewController: UITableViewController, NSFetchedResultsCont
         self.pathToScrollTo = nil
     }
     
-    var context: NSManagedObjectContext? {
+    public var context: NSManagedObjectContext? {
         return SGData.shared.context
     }
     
-    func updateRequest() {
+    public func updateRequest() {
         NSFetchedResultsController.deleteCacheWithName(self.cacheName)
         self.configureRequest(self.fetchController.fetchRequest)
         self.refreshData()
     }
     
-    func configureRequest(request: NSFetchRequest) {
+    public func configureRequest(request: NSFetchRequest) {
         request.predicate = self.fetchPredicate
         request.fetchBatchSize = self.fetchBatchSize
         request.sortDescriptors = self.sortDescriptors
     }
     
-    func refreshData() {
+    public func refreshData() {
         do {
             try self.fetchController.performFetch()
         }
@@ -252,7 +252,7 @@ class SGCoreDataTableViewController: UITableViewController, NSFetchedResultsCont
         self.tableView.reloadData()
     }
     
-    var fetchedResultsController: NSFetchedResultsController?
-    var pathToScrollTo: NSIndexPath?
-    var autoSelectAddedObjects = true
+    public var fetchedResultsController: NSFetchedResultsController?
+    public var pathToScrollTo: NSIndexPath?
+    public var autoSelectAddedObjects = true
 }

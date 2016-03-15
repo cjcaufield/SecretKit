@@ -8,26 +8,26 @@
 
 import UIKit
 
-class SGColorPicker: UIControl {
+public class SGColorPicker: UIControl {
     
-    var selectedColor = UIColor.whiteColor()
-    var selectedRow: Int?
-    var selectedCol: Int?
-    var rowCount = 32
-    var colCount = 8
-    var image: UIImage?
+    public var selectedColor = UIColor.whiteColor()
+    public var selectedRow: Int?
+    public var selectedCol: Int?
+    public var rowCount = 32
+    public var colCount = 8
+    public var image: UIImage?
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         self.initCommon()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.initCommon()
     }
     
-    func initCommon() {
+    public func initCommon() {
         
         self.opaque = false
         
@@ -35,7 +35,7 @@ class SGColorPicker: UIControl {
         self.image = UIImage(contentsOfFile: path!)
     }
     
-    override func drawRect(rect: CGRect) {
+    public override func drawRect(rect: CGRect) {
         
         self.image?.drawInRect(rect)
         
@@ -94,23 +94,23 @@ class SGColorPicker: UIControl {
         */
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.handleTouches(touches)
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.handleTouches(touches)
     }
     
-    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+    public override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
         // nothing
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    public override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         // nothing
     }
     
-    func handleTouches(touches: Set<UITouch>) {
+    public func handleTouches(touches: Set<UITouch>) {
         if let touch = touches.first {
             let point = touch.locationInView(self)
             self.selectedColor = self.getPixelColorAtPoint(point)
@@ -118,7 +118,7 @@ class SGColorPicker: UIControl {
         }
     }
     
-    func getPixelColorAtPoint(point: CGPoint) -> UIColor{
+    public func getPixelColorAtPoint(point: CGPoint) -> UIColor{
         
         let pixel = UnsafeMutablePointer<CUnsignedChar>.alloc(4)
         let colorSpace = CGColorSpaceCreateDeviceRGB()

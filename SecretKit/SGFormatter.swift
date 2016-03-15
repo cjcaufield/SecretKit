@@ -1,5 +1,5 @@
 //
-//  Formatter.swift
+//  SGFormatter.swift
 //  Skiptracer
 //
 //  Created by Colin Caufield on 4/21/15.
@@ -14,9 +14,9 @@ private var longDateFormatter: NSDateFormatter? = nil
 private var dayFormatter: NSDateFormatter? = nil
 private var monthFormatter: NSDateFormatter? = nil
 
-class Formatter: NSObject {
+public class SGFormatter: NSObject {
    
-    class func stringFromLength(length: Double) -> String {
+    public class func stringFromLength(length: Double) -> String {
         
         if lengthFormatter == nil {
             lengthFormatter = NSDateComponentsFormatter()
@@ -29,7 +29,7 @@ class Formatter: NSObject {
         return lengthFormatter!.stringFromTimeInterval(length) ?? ""
     }
     
-    class func clockStringFromDate(date: NSDate) -> String {
+    public class func clockStringFromDate(date: NSDate) -> String {
         
         if dateFormatter == nil {
             dateFormatter = NSDateFormatter()
@@ -39,7 +39,7 @@ class Formatter: NSObject {
         return dateFormatter!.stringFromDate(date)
     }
     
-    class func dateStringFromDate(date: NSDate) -> String {
+    public class func dateStringFromDate(date: NSDate) -> String {
         
         if longDateFormatter == nil {
             longDateFormatter = NSDateFormatter()
@@ -50,7 +50,7 @@ class Formatter: NSObject {
         return longDateFormatter!.stringFromDate(date)
     }
     
-    class func dayStringFromDate(date: NSDate) -> String {
+    public class func dayStringFromDate(date: NSDate) -> String {
         
         if dayFormatter == nil {
             dayFormatter = NSDateFormatter()
@@ -62,7 +62,7 @@ class Formatter: NSObject {
         return dayFormatter!.stringFromDate(date)
     }
     
-    class func monthStringFromDate(date: NSDate) -> String {
+    public class func monthStringFromDate(date: NSDate) -> String {
         
         if monthFormatter == nil {
             monthFormatter = NSDateFormatter()

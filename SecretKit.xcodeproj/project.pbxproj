@@ -13,7 +13,7 @@
 		3B279E531C739D0D00DB0F5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B279E511C739D0D00DB0F5F /* Main.storyboard */; };
 		3B279E551C739D0D00DB0F5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B279E541C739D0D00DB0F5F /* Assets.xcassets */; };
 		3B279E581C739D0D00DB0F5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B279E561C739D0D00DB0F5F /* LaunchScreen.storyboard */; };
-		3B279E5D1C739E1200DB0F5F /* SecretKitTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B412E6D1C7294BD0073441D /* SecretKitTouch.framework */; };
+		3B279E5D1C739E1200DB0F5F /* SecretKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B412E6D1C7294BD0073441D /* SecretKit.framework */; };
 		3B412E8E1C72A5690073441D /* NSIndexPathExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412E7A1C72A5690073441D /* NSIndexPathExtensions.swift */; };
 		3B412E8F1C72A5690073441D /* SGCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412E7B1C72A5690073441D /* SGCellData.swift */; };
 		3B412E901C72A5690073441D /* SGColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B412E7C1C72A5690073441D /* SGColorPicker.swift */; };
@@ -63,6 +63,23 @@
 		3BD62FDC1C73ADDD00AF897B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD62FDB1C73ADDD00AF897B /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3BD403A71C799495007C1D26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B412E641C7294BD0073441D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B412E6C1C7294BD0073441D;
+			remoteInfo = SecretKitTouch;
+		};
+		3BD403A91C79949D007C1D26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B412E641C7294BD0073441D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B412EA41C72A9DC0073441D;
+			remoteInfo = SecretKit;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		3B279E491C739D0D00DB0F5F /* SecretKitTouchTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecretKitTouchTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B279E4B1C739D0D00DB0F5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,7 +89,7 @@
 		3B279E541C739D0D00DB0F5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B279E571C739D0D00DB0F5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B279E591C739D0D00DB0F5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3B412E6D1C7294BD0073441D /* SecretKitTouch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SecretKitTouch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B412E6D1C7294BD0073441D /* SecretKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SecretKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B412E791C72A5690073441D /* Info-ios.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-ios.plist"; sourceTree = "<group>"; };
 		3B412E7A1C72A5690073441D /* NSIndexPathExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSIndexPathExtensions.swift; sourceTree = "<group>"; };
 		3B412E7B1C72A5690073441D /* SGCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SGCellData.swift; sourceTree = "<group>"; };
@@ -114,7 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B279E5D1C739E1200DB0F5F /* SecretKitTouch.framework in Frameworks */,
+				3B279E5D1C739E1200DB0F5F /* SecretKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,8 +180,8 @@
 			children = (
 				3B8972E91C73901600FDDC3C /* Supporting Files */,
 				3B412E6F1C7294BD0073441D /* SecretKit */,
-				3B279E4A1C739D0D00DB0F5F /* SecretKitTouchTest */,
 				3B95DE741C74A4540034667C /* SecretKitTest */,
+				3B279E4A1C739D0D00DB0F5F /* SecretKitTouchTest */,
 				3BC23B9F1C73B18600675B92 /* Libraries */,
 				3B412E6E1C7294BD0073441D /* Products */,
 			);
@@ -173,7 +190,7 @@
 		3B412E6E1C7294BD0073441D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3B412E6D1C7294BD0073441D /* SecretKitTouch.framework */,
+				3B412E6D1C7294BD0073441D /* SecretKit.framework */,
 				3B412EA51C72A9DC0073441D /* SecretKit.framework */,
 				3B279E491C739D0D00DB0F5F /* SecretKitTouchTest.app */,
 				3B95DE731C74A4540034667C /* SecretKitTest.app */,
@@ -312,6 +329,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3BD403A81C799495007C1D26 /* PBXTargetDependency */,
 			);
 			name = SecretKitTouchTest;
 			productName = SecretKitTouchTest;
@@ -333,7 +351,7 @@
 			);
 			name = SecretKitTouch;
 			productName = SecretKit;
-			productReference = 3B412E6D1C7294BD0073441D /* SecretKitTouch.framework */;
+			productReference = 3B412E6D1C7294BD0073441D /* SecretKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		3B412EA41C72A9DC0073441D /* SecretKit */ = {
@@ -365,6 +383,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3BD403AA1C79949D007C1D26 /* PBXTargetDependency */,
 			);
 			name = SecretKitTest;
 			productName = SecretKitTest;
@@ -512,6 +531,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3BD403A81C799495007C1D26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B412E6C1C7294BD0073441D /* SecretKitTouch */;
+			targetProxy = 3BD403A71C799495007C1D26 /* PBXContainerItemProxy */;
+		};
+		3BD403AA1C79949D007C1D26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B412EA41C72A9DC0073441D /* SecretKit */;
+			targetProxy = 3BD403A91C79949D007C1D26 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3B279E511C739D0D00DB0F5F /* Main.storyboard */ = {
@@ -662,7 +694,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.secretgeometry.SecretKitTouch;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = SecretKit;
+				PRODUCT_NAME = SecretKit;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -679,7 +712,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.secretgeometry.SecretKitTouch;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = SecretKit;
+				PRODUCT_NAME = SecretKit;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -805,6 +839,7 @@
 				3B95DE7E1C74A4540034667C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

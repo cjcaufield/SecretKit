@@ -8,29 +8,32 @@
 
 import Foundation
 
-class SGInvocation<Signature> {
+public class SGInvocation<Signature> {
     
-    var target: AnyObject?
-    var selector: Selector?
-    var arguments = [AnyObject?]()
-    var contextInfo: UnsafeMutablePointer<Void> = nil
+    public var target: AnyObject?
+    public var selector: Selector?
+    public var arguments = [AnyObject?]()
+    public var contextInfo: UnsafeMutablePointer<Void> = nil
     
-    init() {
+    public init() {
         // nothing
     }
     
-    init(target: AnyObject, selector: Selector, arguments: [AnyObject?] = [], contextInfo: UnsafeMutablePointer<Void> = nil) {
+    public init(target: AnyObject,
+                selector: Selector,
+                arguments: [AnyObject?] = [],
+                contextInfo: UnsafeMutablePointer<Void> = nil) {
         
         self.target = target
         self.selector = selector
         self.contextInfo = contextInfo
     }
     
-    var argumentCount: Int {
+    public var argumentCount: Int {
         return 0 // implement
     }
     
-    func invoke() {
+    public func invoke() {
         /*
         if let target = self.target, selector = self.selector {
         

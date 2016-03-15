@@ -8,29 +8,29 @@
 
 import UIKit
 
-class SGColorView: UIView {
+public class SGColorView: UIView {
     
-    var color = UIColor.blackColor() {
+    public var color = UIColor.blackColor() {
         didSet {
             self.setNeedsDisplay()
         }
     }
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         self.initCommon()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.initCommon()
     }
     
-    func initCommon() {
+    public func initCommon() {
         self.opaque = false
     }
     
-    override func drawRect(rect: CGRect) {
+    public override func drawRect(rect: CGRect) {
         
         let inner = rect.insetBy(dx: 1.0, dy: 1.0)
         

@@ -8,14 +8,14 @@
 
 import UIKit
 
-extension NSIndexPath {
+public extension NSIndexPath {
     
-    func previous() -> NSIndexPath {
+    public func previous() -> NSIndexPath {
         assert(self.row > 0)
         return NSIndexPath(forRow: self.row - 1, inSection: self.section)
     }
     
-    func next() -> NSIndexPath {
+    public func next() -> NSIndexPath {
         return NSIndexPath(forRow: self.row + 1, inSection: self.section)
     }
 }

@@ -8,9 +8,9 @@
 
 import CoreData
 
-extension NSManagedObject {
+public extension NSManagedObject {
     
-    var objectIDString: String? {
+    public var objectIDString: String? {
         return self.objectID.URIRepresentation().absoluteString
     }
 }

@@ -8,33 +8,33 @@
 
 import UIKit
 
-class SGDynamicTableViewController: UITableViewController,
-                                    UITextFieldDelegate,
-                                    UITextViewDelegate,
-                                    UIPickerViewDelegate,
-                                    UIPickerViewDataSource {
+public class SGDynamicTableViewController: UITableViewController,
+                                           UITextFieldDelegate,
+                                           UITextViewDelegate,
+                                           UIPickerViewDelegate,
+                                           UIPickerViewDataSource {
     
     // MARK: Properties
     
-    var tableData = SGTableData()
-    var revealedCellIndexPath: NSIndexPath?
-    var hasRegisteredObservers = false
-    var showDoneButton = false
-    var autosave = false
+    public var tableData = SGTableData()
+    public var revealedCellIndexPath: NSIndexPath?
+    public var hasRegisteredObservers = false
+    public var showDoneButton = false
+    public var autosave = false
     
     // MARK: Title
     
-    var titleString: String {
+    public var titleString: String {
         return self.title ?? "Untitled"
     }
     
-    func refreshTitle() {
+    public func refreshTitle() {
         self.title = self.titleString ?? "Untitled"
     }
     
     // MARK: Object
     
-    var object: AnyObject? {
+    public var object: AnyObject? {
         willSet {
             self.unregisterObservers()
         }
@@ -50,20 +50,22 @@ class SGDynamicTableViewController: UITableViewController,
     
     // MARK: Lifecycle
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        self.registerCellNib(DATE_PICKER_CELL_ID)
-        self.registerCellNib(PICKER_CELL_ID)
-        self.registerCellNib(LABEL_CELL_ID)
-        self.registerCellNib(SWITCH_CELL_ID)
-        self.registerCellNib(SLIDER_CELL_ID)
-        self.registerCellNib(TEXT_FIELD_CELL_ID)
-        self.registerCellNib(TEXT_VIEW_CELL_ID)
-        self.registerCellNib(TIME_PICKER_CELL_ID)
-        self.registerCellNib(SEGMENTED_CELL_ID)
-        self.registerCellNib(COLOR_CELL_ID)
+        let bundle = NSBundle(forClass: SGDynamicTableViewController.self)
+        
+        self.registerCellNib(DATE_PICKER_CELL_ID,   bundle: bundle)
+        self.registerCellNib(PICKER_CELL_ID,        bundle: bundle)
+        self.registerCellNib(LABEL_CELL_ID,         bundle: bundle)
+        self.registerCellNib(SWITCH_CELL_ID,        bundle: bundle)
+        self.registerCellNib(SLIDER_CELL_ID,        bundle: bundle)
+        self.registerCellNib(TEXT_FIELD_CELL_ID,    bundle: bundle)
+        self.registerCellNib(TEXT_VIEW_CELL_ID,     bundle: bundle)
+        self.registerCellNib(TIME_PICKER_CELL_ID,   bundle: bundle)
+        self.registerCellNib(SEGMENTED_CELL_ID,     bundle: bundle)
+        self.registerCellNib(COLOR_CELL_ID,         bundle: bundle)
         
         self.tableData = self.makeTableData()
         assert(self.dataMatchesTable)
@@ -74,21 +76,21 @@ class SGDynamicTableViewController: UITableViewController,
         self.tableView.alwaysBounceVertical = false
     }
     
-    func registerCellNib(name: String) {
-        let nib = UINib(nibName: name, bundle: nil)
+    public func registerCellNib(name: String, bundle: NSBundle? = nil) {
+        let nib = UINib(nibName: name, bundle: bundle)
         self.tableView.registerNib(nib, forCellReuseIdentifier: name)
     }
     
-    func makeTableData() -> SGTableData {
+    public func makeTableData() -> SGTableData {
         return SGTableData()
     }
     
-    func refreshData() {
+    public func refreshData() {
         self.refreshTitle()
         self.tableView.reloadData()
     }
     
-    func configureView() {
+    public func configureView() {
         
         if self.showDoneButton {
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "done:")
@@ -99,7 +101,7 @@ class SGDynamicTableViewController: UITableViewController,
         }
     }
     
-    func done(sender: AnyObject) {
+    public func done(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
@@ -109,7 +111,7 @@ class SGDynamicTableViewController: UITableViewController,
     
     // MARK: Key-Value Coding
     
-    func registerObservers() {
+    public func registerObservers() {
         
         if self.hasRegisteredObservers {
             return
@@ -135,7 +137,7 @@ class SGDynamicTableViewController: UITableViewController,
         self.hasRegisteredObservers = true
     }
     
-    func unregisterObservers() {
+    public func unregisterObservers() {
         
         if !self.hasRegisteredObservers {
             return
@@ -160,7 +162,7 @@ class SGDynamicTableViewController: UITableViewController,
         self.hasRegisteredObservers = false
     }
     
-    func path(path1: NSString?, isAncestorOf path2: NSString?) -> Bool {
+    public func path(path1: NSString?, isAncestorOf path2: NSString?) -> Bool {
         
         if path1 == nil || path2 == nil {
             return false
@@ -178,10 +180,10 @@ class SGDynamicTableViewController: UITableViewController,
         return true
     }
     
-    override func observeValueForKeyPath(keyPath: String?,
-                                         ofObject object: AnyObject?,
-                                         change: [String : AnyObject]?,
-                                         context: UnsafeMutablePointer<Void>) {
+    public override func observeValueForKeyPath(keyPath: String?,
+                                                ofObject object: AnyObject?,
+                                                change: [String : AnyObject]?,
+                                                context: UnsafeMutablePointer<Void>) {
         
         for section in self.tableData.sections {
             for data in section.rows {
@@ -196,22 +198,22 @@ class SGDynamicTableViewController: UITableViewController,
         }
     }
     
-    func dataModelWillChange(data: SGRowData) {
+    public func dataModelWillChange(data: SGRowData) {
         // empty
     }
     
-    func dataModelDidChange(data: SGRowData) {
+    public func dataModelDidChange(data: SGRowData) {
         // empty
     }
     
     // MARK: TextFields
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    public func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return false
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    public func textFieldDidEndEditing(textField: UITextField) {
         if let data = self.dataForControl(textField) {
             if let path = data.modelPath {
                 if let target = self.targetForData(data) {
@@ -228,7 +230,7 @@ class SGDynamicTableViewController: UITableViewController,
     
     // MARK: TextViews
     
-    func textViewDidEndEditing(textView: UITextView) {
+    public func textViewDidEndEditing(textView: UITextView) {
         if let data = self.dataForControl(textView) {
             if let path = data.modelPath {
                 if let target = self.targetForData(data) {
@@ -245,7 +247,7 @@ class SGDynamicTableViewController: UITableViewController,
     
     // MARK: Switches
     
-    func switchDidChange(toggle: UISwitch) {
+    public func switchDidChange(toggle: UISwitch) {
         if let data = self.dataForControl(toggle) {
             if let path = data.modelPath {
                 if let target = self.targetForData(data) {
@@ -262,7 +264,7 @@ class SGDynamicTableViewController: UITableViewController,
     
     // MARK: Sliders
     
-    func sliderDidChange(slider: UISlider) {
+    public func sliderDidChange(slider: UISlider) {
         if let data = self.dataForControl(slider) {
             if let path = data.modelPath {
                 if let target = self.targetForData(data) {
@@ -279,29 +281,29 @@ class SGDynamicTableViewController: UITableViewController,
     
     // MARK: PickerViews
     
-    func configurePicker(picker: UIPickerView, forModelPath path: String?) {
+    public func configurePicker(picker: UIPickerView, forModelPath path: String?) {
         //
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    public func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return ""
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    public func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         //
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    public func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 0
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    public func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return 0
     }
     
     // MARK: DatePickers
     
-    func datePickerDidChange(picker: UIDatePicker) {
+    public func datePickerDidChange(picker: UIDatePicker) {
         
         // Update the model.
         
@@ -331,11 +333,11 @@ class SGDynamicTableViewController: UITableViewController,
     
     // MARK: SegmentedControls
     
-    func configureSegmentedControl(control: UISegmentedControl, forModelPath path: String?) {
+    public func configureSegmentedControl(control: UISegmentedControl, forModelPath path: String?) {
         //
     }
     
-    func segmentedControlDidChange(control: UISegmentedControl) {
+    public func segmentedControlDidChange(control: UISegmentedControl) {
         if let data = self.dataForControl(control) {
             if let path = data.modelPath {
                 if let target = self.targetForData(data) {
@@ -352,11 +354,11 @@ class SGDynamicTableViewController: UITableViewController,
     
     // MARK: TableViewController
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    public override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.tableData.sections.count
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    public override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
         // CJC todo: don't hardcode these.
             
@@ -379,7 +381,7 @@ class SGDynamicTableViewController: UITableViewController,
         }
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: NSInteger) -> NSInteger {
+    public override func tableView(tableView: UITableView, numberOfRowsInSection section: NSInteger) -> NSInteger {
         
         var numRows = self.tableData.sections[section].rows.count
         
@@ -390,7 +392,7 @@ class SGDynamicTableViewController: UITableViewController,
         return numRows
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    public override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cellID = self.cellIdentifierForIndexPath(indexPath)
         
@@ -410,7 +412,7 @@ class SGDynamicTableViewController: UITableViewController,
         return cell!
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    public override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         if let cell = self.tableView.cellForRowAtIndexPath(indexPath) {
             
@@ -438,7 +440,7 @@ class SGDynamicTableViewController: UITableViewController,
     
     // MARK: Data
     
-    var dataMatchesTable: Bool {
+    public var dataMatchesTable: Bool {
         
         // TODO: Add logic to handle hidden rows.
         
@@ -459,21 +461,21 @@ class SGDynamicTableViewController: UITableViewController,
         return true
     }
     
-    func didSelectData(data: SGRowData) {
+    public func didSelectData(data: SGRowData) {
         // nothing
     }
     
     // MARK: Mapping
     
-    func targetForData(data: SGRowData) -> AnyObject? {
+    public func targetForData(data: SGRowData) -> AnyObject? {
         return (data.targetType == .Object) ? self.object : self
     }
     
-    func cellForControl(control: UIView) -> UITableViewCell? {
+    public func cellForControl(control: UIView) -> UITableViewCell? {
         return control.superview?.superview as? UITableViewCell
     }
     
-    func dataForControl(control: UIView) -> SGRowData? {
+    public func dataForControl(control: UIView) -> SGRowData? {
         
         if let cell = self.cellForControl(control) {
             return self.dataForCell(cell);
@@ -482,7 +484,7 @@ class SGDynamicTableViewController: UITableViewController,
         return nil
     }
     
-    func dataForCell(cell: UITableViewCell) -> SGRowData? {
+    public func dataForCell(cell: UITableViewCell) -> SGRowData? {
     
         if let path = self.tableView.indexPathForCell(cell) {
             return self.dataForIndexPath(path)
@@ -491,7 +493,7 @@ class SGDynamicTableViewController: UITableViewController,
         return nil
     }
     
-    func cellForData(data: SGRowData) -> UITableViewCell? {
+    public func cellForData(data: SGRowData) -> UITableViewCell? {
         
         if let indexPath = self.indexPathForData(data) {
             return self.tableView.cellForRowAtIndexPath(indexPath)
@@ -500,7 +502,7 @@ class SGDynamicTableViewController: UITableViewController,
         return nil
     }
     
-    func cellForModelPath(modelPath: String) -> UITableViewCell? {
+    public func cellForModelPath(modelPath: String) -> UITableViewCell? {
         
         var s = 0
         var r = 0
@@ -520,7 +522,7 @@ class SGDynamicTableViewController: UITableViewController,
         return nil
     }
     
-    func dataForIndexPath(indexPath: NSIndexPath) -> SGRowData? {
+    public func dataForIndexPath(indexPath: NSIndexPath) -> SGRowData? {
         
         let modelPath = self.dynamicIndexPath(indexPath)
         if modelPath.section < self.tableData.sections.count {
@@ -533,7 +535,7 @@ class SGDynamicTableViewController: UITableViewController,
         return nil
     }
     
-    func indexPathForData(dataToFind: SGRowData) -> NSIndexPath? {
+    public func indexPathForData(dataToFind: SGRowData) -> NSIndexPath? {
         
         var s = 0
         var r = 0
@@ -552,11 +554,11 @@ class SGDynamicTableViewController: UITableViewController,
         return nil
     }
     
-    func enabledStateForModelPath(modelPath: String?) -> Bool {
+    public func enabledStateForModelPath(modelPath: String?) -> Bool {
         return true
     }
     
-    func cellIdentifierForIndexPath(indexPath: NSIndexPath) -> String {
+    public func cellIdentifierForIndexPath(indexPath: NSIndexPath) -> String {
         
         let id = self.dataForIndexPath(indexPath)!.cellIdentifier
         
@@ -583,19 +585,19 @@ class SGDynamicTableViewController: UITableViewController,
     
     // MARK: Configuration
     
-    func configureCell(cell: UITableViewCell) {
+    public func configureCell(cell: UITableViewCell) {
         if let path = self.tableView.indexPathForCell(cell) {
             self.configureCell(cell, atIndexPath: path)
         }
     }
     
-    func configureCellAtIndexPath(path: NSIndexPath) {
+    public func configureCellAtIndexPath(path: NSIndexPath) {
         if let cell = self.tableView.cellForRowAtIndexPath(path) {
             self.configureCell(cell, atIndexPath: path)
         }
     }
     
-    func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
+    public func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
         
         let data = self.dataForIndexPath(indexPath)!
         
@@ -670,7 +672,7 @@ class SGDynamicTableViewController: UITableViewController,
                 }
             }
         
-            cell.detailTextLabel?.text = Formatter.dateStringFromDate(date)
+            cell.detailTextLabel?.text = SGFormatter.dateStringFromDate(date)
         
         case TIME_LABEL_CELL_ID:
             
@@ -685,7 +687,7 @@ class SGDynamicTableViewController: UITableViewController,
                 }
             }
             
-            let timeString = Formatter.stringFromLength(length)
+            let timeString = SGFormatter.stringFromLength(length)
             
             cell.detailTextLabel?.text = timeString
             
@@ -876,13 +878,13 @@ class SGDynamicTableViewController: UITableViewController,
         self.setEnabled(enabled, forCell: cell)
     }
     
-    func setEnabled(enabled: Bool, forCell cell: UITableViewCell) {
+    public func setEnabled(enabled: Bool, forCell cell: UITableViewCell) {
         cell.userInteractionEnabled = enabled
         cell.textLabel?.enabled = enabled
         cell.detailTextLabel?.enabled = enabled
     }
     
-    func refreshSection(section: Int) {
+    public func refreshSection(section: Int) {
         for i in 0 ..< self.tableView.numberOfRowsInSection(section) {
             let path = NSIndexPath(forRow: i, inSection: 0)
             if let cell = self.tableView.cellForRowAtIndexPath(path) {
@@ -893,7 +895,7 @@ class SGDynamicTableViewController: UITableViewController,
     
     // MARK: Hide/Show
     
-    func dynamicIndexPath(indexPath: NSIndexPath) -> NSIndexPath {
+    public func dynamicIndexPath(indexPath: NSIndexPath) -> NSIndexPath {
         
         if let path = self.revealedCellIndexPath {
             if (path.section == indexPath.section && path.row <= indexPath.row) {
@@ -904,7 +906,7 @@ class SGDynamicTableViewController: UITableViewController,
         return indexPath
     }
     
-    func targetedCell() -> NSIndexPath? {
+    public func targetedCell() -> NSIndexPath? {
         if let path = self.revealedCellIndexPath {
             return path.previous()
         } else {
@@ -912,17 +914,17 @@ class SGDynamicTableViewController: UITableViewController,
         }
     }
     
-    func hasRevealedCell() -> Bool {
+    public func hasRevealedCell() -> Bool {
         return self.revealedCellIndexPath != nil
     }
     
-    func canExpandCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) -> Bool {
+    public func canExpandCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) -> Bool {
         let hasRevealableCellBelow = (cell.reuseIdentifier == TIME_LABEL_CELL_ID) // CJC: revisit
         let canModify = true // CJC: revisit
         return hasRevealableCellBelow && canModify
     }
     
-    func hasRevealedCellForIndexPath(indexPath: NSIndexPath) -> Bool {
+    public func hasRevealedCellForIndexPath(indexPath: NSIndexPath) -> Bool {
         
         if let thisCell = self.tableView.cellForRowAtIndexPath(indexPath) {
             if let nextCell = self.tableView.cellForRowAtIndexPath(indexPath.next()) {
@@ -947,7 +949,7 @@ class SGDynamicTableViewController: UITableViewController,
         return false
     }
     
-    func updateRevealedControl() {
+    public func updateRevealedControl() {
         if let path = self.revealedCellIndexPath {
             if let cell = self.tableView.cellForRowAtIndexPath(path) {
                 self.configureCell(cell, atIndexPath: path)
@@ -955,7 +957,7 @@ class SGDynamicTableViewController: UITableViewController,
         }
     }
     
-    func toggleRevealedCellForSelectedIndexPath(indexPath: NSIndexPath) {
+    public func toggleRevealedCellForSelectedIndexPath(indexPath: NSIndexPath) {
         
         self.tableView.beginUpdates()
         
@@ -970,7 +972,7 @@ class SGDynamicTableViewController: UITableViewController,
         self.tableView.endUpdates()
     }
     
-    func displayRevealedCellForRowAtIndexPath(indexPath: NSIndexPath) {
+    public func displayRevealedCellForRowAtIndexPath(indexPath: NSIndexPath) {
         
         self.tableView.beginUpdates()
         

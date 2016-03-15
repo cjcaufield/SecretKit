@@ -8,47 +8,47 @@
 
 import UIKit
 
-class SGViewController: UIViewController {
+public class SGViewController: UIViewController {
 
-    var timer: NSTimer?
-    var timerInterval = 1.0
-    var shouldUseTimer = false
+    public var timer: NSTimer?
+    public var timerInterval = 1.0
+    public var shouldUseTimer = false
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         self.addObservers()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    public override func viewWillAppear(animated: Bool) {
         if self.shouldUseTimer {
             self.createTimer()
         }
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    public override func viewDidDisappear(animated: Bool) {
         if self.shouldUseTimer {
             self.destroyTimer()
         }
     }
     
-    func addObservers() {
-        
+    public func addObservers() {
+        // nothing
     }
     
-    func removeObservers() {
-        
+    public func removeObservers() {
+        // nothing
     }
     
-    func createTimer() {
+    public func createTimer() {
         self.timer = NSTimer.scheduledTimerWithTimeInterval(self.timerInterval, target: self, selector: "timerUpdate", userInfo: nil, repeats: true)
     }
     
-    func destroyTimer() {
+    public func destroyTimer() {
         self.timer?.invalidate()
         self.timer = nil
     }
     
-    func timerUpdate() {
-        
+    public func timerUpdate() {
+        // nothing
     }
 }
