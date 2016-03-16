@@ -3,7 +3,7 @@
 .com.apple.timemachine.supported
 
 # SVN
-.svn
+.svn*
 
 # Xcode
 xcuserdata
