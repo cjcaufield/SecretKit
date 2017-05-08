@@ -1,6 +1,6 @@
 //
 //  Data.swift
-//  Skiptracer
+//  SecretKit
 //
 //  Created by Colin Caufield on 4/1/15.
 //  Copyright (c) 2015 Secret Geometry, Inc. All rights reserved.
@@ -17,12 +17,12 @@ private var _shared: SGData? = nil
 
 public let CloudDataDidChangeNotification  = "CloudDataDidChangeNotification"
 
-public class SGData: NSObject {
+open class SGData: NSObject {
     
-    public var name = "Data"
-    public var useCloud = false
+    open var name = "Data"
+    open var useCloud = false
     
-    public class var shared: SGData {
+    open class var shared: SGData {
         if (_shared == nil) {
             _shared = SGData(name: "Data")
         }
@@ -43,75 +43,75 @@ public class SGData: NSObject {
         self.unregisterCloudStoreObserver(self)
     }
     
-    public var center: NSNotificationCenter {
-        return NSNotificationCenter.defaultCenter()
+    open var center: NotificationCenter {
+        return NotificationCenter.default
     }
     
-    public func registerCloudStoreObserver(observer: AnyObject) {
+    open func registerCloudStoreObserver(_ observer: AnyObject) {
         
         if !self.useCloud { return }
         
         self.center.addObserver(
             observer,
-            selector: "cloudStoreWillChange:",
-            name: NSPersistentStoreCoordinatorStoresWillChangeNotification,
+            selector: #selector(cloudStoreWillChange(_:)),
+            name: NSNotification.Name.NSPersistentStoreCoordinatorStoresWillChange,
             object: self.persistentStoreCoordinator)
         
         self.center.addObserver(
             observer,
-            selector: "cloudStoreDidChange:",
-            name: NSPersistentStoreCoordinatorStoresDidChangeNotification,
+            selector: #selector(cloudStoreDidChange(_:)),
+            name: NSNotification.Name.NSPersistentStoreCoordinatorStoresDidChange,
             object: self.persistentStoreCoordinator)
         
         self.center.addObserver(
             observer,
-            selector: "cloudStoreDidImport:",
-            name: NSPersistentStoreDidImportUbiquitousContentChangesNotification,
+            selector: #selector(cloudStoreDidImport(_:)),
+            name: NSNotification.Name.NSPersistentStoreDidImportUbiquitousContentChanges,
             object: self.persistentStoreCoordinator)
     }
     
-    public func unregisterCloudStoreObserver(observer: AnyObject) {
+    open func unregisterCloudStoreObserver(_ observer: AnyObject) {
         
         if !self.useCloud { return }
         
         self.center.removeObserver(
             observer,
-            name: NSPersistentStoreCoordinatorStoresWillChangeNotification,
+            name: NSNotification.Name.NSPersistentStoreCoordinatorStoresWillChange,
             object: self.persistentStoreCoordinator)
         
         self.center.removeObserver(
             observer,
-            name: NSPersistentStoreCoordinatorStoresDidChangeNotification,
+            name: NSNotification.Name.NSPersistentStoreCoordinatorStoresDidChange,
             object: self.persistentStoreCoordinator)
         
         self.center.removeObserver(
             observer,
-            name: NSPersistentStoreDidImportUbiquitousContentChangesNotification,
+            name: NSNotification.Name.NSPersistentStoreDidImportUbiquitousContentChanges,
             object: self.persistentStoreCoordinator)
     }
     
-    public func registerCloudDataObserver(observer: AnyObject) {
+    open func registerCloudDataObserver(_ observer: AnyObject) {
         self.center.addObserver(
             observer,
-            selector: "cloudDataDidChange:",
-            name: CloudDataDidChangeNotification,
+            selector: #selector(cloudDataDidChange(_:)),
+            name: NSNotification.Name(rawValue: CloudDataDidChangeNotification),
             object: nil)
     }
     
-    public func unregisterCloudDataObserver(observer: AnyObject) {
+    open func unregisterCloudDataObserver(_ observer: AnyObject) {
         self.center.removeObserver(
             observer,
-            name: CloudDataDidChangeNotification,
+            name: NSNotification.Name(rawValue: CloudDataDidChangeNotification),
             object: nil)
     }
     
-    public func cloudStoreWillChange(note: NSNotification) {
+    open func cloudStoreWillChange(_ note: Notification) {
         
         print("Data.cloudStoreWillChange \(note)")
         //UIApplication.sharedApplication().beginIgnoringInteractionEvents()
         
         if let context = self.context {
-            context.performBlockAndWait({
+            context.performAndWait({
                 if context.hasChanges {
                     self.save()
                 } else {
@@ -121,15 +121,15 @@ public class SGData: NSObject {
         }
     }
     
-    public func cloudStoreDidChange(note: NSNotification) {
+    open func cloudStoreDidChange(_ note: Notification) {
         
         print("Data.cloudStoreDidChange \(note)")
         
         if let context = self.context {
-            context.performBlockAndWait({
+            context.performAndWait({
                 self.deduplicate()
                 self.refreshProperties()
-                self.center.postNotificationName(CloudDataDidChangeNotification, object: nil)
+                self.center.post(name: Notification.Name(rawValue: CloudDataDidChangeNotification), object: nil)
             })
         }
         
@@ -137,52 +137,56 @@ public class SGData: NSObject {
         //UIApplication.sharedApplication().endIgnoringInteractionEvents()
     }
     
-    public func cloudStoreDidImport(note: NSNotification) {
+    open func cloudStoreDidImport(_ note: Notification) {
         
         print("Data.cloudStoreDidImport \(note)")
         
         if let context = self.context {
-            context.performBlockAndWait({
-                context.mergeChangesFromContextDidSaveNotification(note)
+            context.performAndWait({
+                context.mergeChanges(fromContextDidSave: note)
                 self.deduplicate()
                 self.refreshProperties()
-                self.center.postNotificationName(CloudDataDidChangeNotification, object: nil)
+                self.center.post(name: Notification.Name(rawValue: CloudDataDidChangeNotification), object: nil)
             })
         }
     }
+    
+    open func cloudDataDidChange(_ note: Notification) {
+        // is this method needed?
+    }
 
-    public func insertNewObject(entityName: String) -> AnyObject {
-        return NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext: self.context!)
+    open func insertNewObject(_ entityName: String) -> AnyObject {
+        return NSEntityDescription.insertNewObject(forEntityName: entityName, into: self.context!)
     }
     
-    public func uniqueDeviceString() -> String {
+    open func uniqueDeviceString() -> String {
         
         #if os(iOS)
-            let isPhone = (UIDevice.currentDevice().userInterfaceIdiom == .Phone)
+            let isPhone = (UIDevice.current.userInterfaceIdiom == .phone)
             let idiomName = isPhone ? "iPhone" : "iPad"
-            let deviceID = UIDevice.currentDevice().identifierForVendor?.UUIDString
+            let deviceID = UIDevice.current.identifierForVendor?.uuidString
             assert(deviceID != nil)
-            return "\(idiomName) - \(deviceID)"
+            return "\(idiomName) - \(String(describing: deviceID))"
         #else
             return "Unknown" // TODO: implement
         #endif
     }
     
-    public func refreshProperties() {
+    open func refreshProperties() {
         // empty
     }
     
-    public func deduplicate() {
+    open func deduplicate() {
         // empty
     }
     
-    public func save() {
+    open func save() {
         
         print("*** SAVING")
         
         if let context = self.context {
             if context.hasChanges {
-                context.performBlockAndWait({
+                context.performAndWait({
                     do {
                         try context.save()
                     }
@@ -203,33 +207,33 @@ public class SGData: NSObject {
         print("*** SAVED")
     }
     
-    public func fetchRequest(entityName: String, predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor] = []) -> NSFetchRequest {
-        let request = NSFetchRequest(entityName: entityName)
+    open func fetchRequest(_ entityName: String, predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor] = []) -> NSFetchRequest<NSFetchRequestResult> {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
         request.predicate = predicate
         request.sortDescriptors = sortDescriptors
         return request
     }
     
-    public func fetchObject(request: NSFetchRequest) -> AnyObject? {
+    open func fetchObject(_ request: NSFetchRequest<NSFetchRequestResult>) -> AnyObject? {
         return self.fetchObjects(request).first
     }
     
-    public func fetchObject(entityName: String, predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor] = []) -> AnyObject? {
+    open func fetchObject(_ entityName: String, predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor] = []) -> AnyObject? {
         let request = self.fetchRequest(entityName, predicate: predicate, sortDescriptors: sortDescriptors)
         return self.fetchObject(request)
     }
     
-    public func fetchObjectNamed(name: String, entityName: String, predicate: NSPredicate? = nil) -> AnyObject? {
+    open func fetchObject(_ entityName: String, name: String, predicate: NSPredicate? = nil) -> AnyObject? {
         let namePredicate = NSPredicate(format: "(name = %@)", name)
         let predicate = self.andPredicates([namePredicate, predicate])
         let request = self.fetchRequest(entityName, predicate: predicate)
         return self.fetchObject(request)
     }
     
-    public func fetchObjects(request: NSFetchRequest) -> [AnyObject] {
+    open func fetchObjects(_ request: NSFetchRequest<NSFetchRequestResult>) -> [AnyObject] {
         let objects: [AnyObject]?
         do {
-            objects = try self.context!.executeFetchRequest(request)
+            objects = try self.context!.fetch(request)
         }
         catch let error as NSError {
             objects = nil
@@ -239,12 +243,12 @@ public class SGData: NSObject {
         return objects ?? []
     }
     
-    public func fetchObjects(entityName: String, predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor] = []) -> [AnyObject] {
+    open func fetchObjects(_ entityName: String, predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor] = []) -> [AnyObject] {
         let request = self.fetchRequest(entityName, predicate: predicate, sortDescriptors: sortDescriptors)
         return self.fetchObjects(request)
     }
     
-    public func nextAvailableName(desiredName: String, entityName: String, predicate: NSPredicate? = nil) -> String {
+    open func nextAvailableName(_ desiredName: String, entityName: String, predicate: NSPredicate? = nil) -> String {
         
         var name = ""
         var index = 1
@@ -253,15 +257,15 @@ public class SGData: NSObject {
         repeat {
             let suffix = (index == 1) ? "" : " " + String(index)
             name = desiredName + suffix
-            existingObject = self.fetchObjectNamed(name, entityName: entityName, predicate: predicate) as AnyObject?
-            index++
+            existingObject = self.fetchObject(entityName, name: name, predicate: predicate) as AnyObject?
+            index += 1
         }
         while existingObject != nil
         
         return name
     }
     
-    public func nullablePredicate(name: String, object: AnyObject?) -> NSPredicate {
+    open func nullablePredicate(_ name: String, object: AnyObject?) -> NSPredicate {
         if object != nil {
             let format = "\(name) = %@"
             return NSPredicate(format: format, argumentArray: [object!])
@@ -271,7 +275,7 @@ public class SGData: NSObject {
         }
     }
     
-    public func booleanPredicate(name: String, value: Bool) -> NSPredicate {
+    open func booleanPredicate(_ name: String, value: Bool) -> NSPredicate {
         if value {
             let format = "\(name) = true"
             return NSPredicate(format: format)
@@ -281,7 +285,7 @@ public class SGData: NSObject {
         }
     }
     
-    public func andPredicates(predicates: [NSPredicate?]) -> NSPredicate {
+    open func andPredicates(_ predicates: [NSPredicate?]) -> NSPredicate {
         
         var finalPredicate: NSPredicate?
         for possiblePredicate in predicates {
@@ -298,30 +302,30 @@ public class SGData: NSObject {
         return finalPredicate!
     }
     
-    public lazy var applicationDocumentsDirectory: NSURL = {
-        let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count - 1] as NSURL
+    open lazy var applicationDocumentsDirectory: URL = {
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return urls[urls.count - 1] as URL
     }()
     
-    public lazy var cloudDirectory: NSURL? = {
-        return NSFileManager.defaultManager().URLForUbiquityContainerIdentifier(nil)
+    open lazy var cloudDirectory: URL? = {
+        return FileManager.default.url(forUbiquityContainerIdentifier: nil)
     }()
     
-    public lazy var managedObjectModel: NSManagedObjectModel = {
-        let modelURL = NSBundle.mainBundle().URLForResource(self.name, withExtension: "momd")!
-        return NSManagedObjectModel(contentsOfURL: modelURL)!
+    open lazy var managedObjectModel: NSManagedObjectModel = {
+        let modelURL = Bundle.main.url(forResource: self.name, withExtension: "momd")!
+        return NSManagedObjectModel(contentsOf: modelURL)!
     }()
     
-    public lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
+    open lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
         
         var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         let filename = self.name + ".sqlite"
-        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent(filename)
+        let url = self.applicationDocumentsDirectory.appendingPathComponent(filename)
         
         var error: NSError? = nil
         var failureReason = "There was an error creating or loading the application's saved data."
         
-        var options = [NSObject: AnyObject]()
+        var options = [AnyHashable: Any]()
         
         options = [
             NSMigratePersistentStoresAutomaticallyOption: true,
@@ -336,7 +340,7 @@ public class SGData: NSObject {
         
         let store: NSPersistentStore?
         do {
-            store = try coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: options)
+            store = try coordinator!.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: options)
         } catch {
             fatalError() // CJC: handle error better
         }
@@ -347,29 +351,29 @@ public class SGData: NSObject {
             
             // Report any error.
             var dict = [String: AnyObject]()
-            dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
-            dict[NSLocalizedFailureReasonErrorKey] = failureReason
+            dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data" as AnyObject?
+            dict[NSLocalizedFailureReasonErrorKey] = failureReason as AnyObject?
             dict[NSUnderlyingErrorKey] = error
             error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
             
             // CJC: Replace this with something shipable.
-            NSLog("Unresolved error \(error), \(error!.userInfo)")
+            NSLog("Unresolved error \(String(describing: error)), \(error!.userInfo)")
             abort()
         }
         
-        print("Persistent store url is \(store!.URL)")
+        print("Persistent store url is \(String(describing: store!.url))")
         
         return coordinator
     }()
     
-    public lazy var context: NSManagedObjectContext? = {
+    open lazy var context: NSManagedObjectContext? = {
         
         let coordinator = self.persistentStoreCoordinator
         if coordinator == nil {
             return nil
         }
         
-        var context = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+        var context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         context.persistentStoreCoordinator = coordinator
         return context
     }()

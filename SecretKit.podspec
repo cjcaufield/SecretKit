@@ -1,12 +1,12 @@
 Pod::Spec.new do |spec|
 
 spec.name = "SecretKit"
-spec.summary = "Cocoa classes for iOS and OSX."
+spec.summary = "Rapid app development classes for iOS and OSX."
 
-spec.version = "0.1.6"
+spec.version = "0.1.7"
 
-spec.ios.deployment_target = '9.0'
-spec.osx.deployment_target = '10.11'
+spec.ios.deployment_target = '10.0'
+spec.osx.deployment_target = '10.12'
 
 spec.requires_arc = true
 

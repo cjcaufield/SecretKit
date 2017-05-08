@@ -14,7 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
 
-    func applicationDidFinishLaunching(note: NSNotification) {
+    func applicationDidFinishLaunching(_ note: Notification) {
         
         let nums: [Int?] = [0, nil, 1, nil, 2, nil, 3]
         print(nums)

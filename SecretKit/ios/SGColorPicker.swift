@@ -10,7 +10,7 @@ import UIKit
 
 public class SGColorPicker: UIControl {
     
-    public var selectedColor = UIColor.whiteColor()
+    public var selectedColor = UIColor.white
     public var selectedRow: Int?
     public var selectedCol: Int?
     public var rowCount = 32
@@ -29,15 +29,15 @@ public class SGColorPicker: UIControl {
     
     public func initCommon() {
         
-        self.opaque = false
+        self.isOpaque = false
         
-        let path = NSBundle.mainBundle().pathForResource("HSV", ofType: "png")
+        let path = Bundle.main.path(forResource: "HSV", ofType: "png")
         self.image = UIImage(contentsOfFile: path!)
     }
     
-    public override func drawRect(rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         
-        self.image?.drawInRect(rect)
+        self.image?.draw(in: rect)
         
         /*
         let context = UIGraphicsGetCurrentContext()
@@ -94,39 +94,39 @@ public class SGColorPicker: UIControl {
         */
     }
     
-    public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.handleTouches(touches)
     }
     
-    public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.handleTouches(touches)
     }
     
-    public override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+    public override func touchesCancelled(_ touches: Set<UITouch>?, with event: UIEvent?) {
         // nothing
     }
     
-    public override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         // nothing
     }
     
-    public func handleTouches(touches: Set<UITouch>) {
+    public func handleTouches(_ touches: Set<UITouch>) {
         if let touch = touches.first {
-            let point = touch.locationInView(self)
+            let point = touch.location(in: self)
             self.selectedColor = self.getPixelColorAtPoint(point)
-            self.sendActionsForControlEvents(.ValueChanged)
+            self.sendActions(for: .valueChanged)
         }
     }
     
-    public func getPixelColorAtPoint(point: CGPoint) -> UIColor{
+    public func getPixelColorAtPoint(_ point: CGPoint) -> UIColor{
         
-        let pixel = UnsafeMutablePointer<CUnsignedChar>.alloc(4)
+        let pixel = UnsafeMutablePointer<CUnsignedChar>.allocate(capacity: 4)
         let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.PremultipliedLast.rawValue)
-        let context = CGBitmapContextCreate(pixel, 1, 1, 8, 4, colorSpace, bitmapInfo.rawValue)
+        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
+        let context = CGContext(data: pixel, width: 1, height: 1, bitsPerComponent: 8, bytesPerRow: 4, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)
         
-        CGContextTranslateCTM(context, -point.x, -point.y)
-        self.layer.renderInContext(context!)
+        context!.translateBy(x: -point.x, y: -point.y)
+        self.layer.render(in: context!)
         
         let r = CGFloat(pixel[0]) / 255.0
         let g = CGFloat(pixel[1]) / 255.0
@@ -135,7 +135,7 @@ public class SGColorPicker: UIControl {
         
         let color = UIColor(red: r, green: g, blue: b, alpha: a);
         
-        pixel.dealloc(4)
+        pixel.deallocate(capacity: 4)
         return color
     }
 }

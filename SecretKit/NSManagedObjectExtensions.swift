@@ -11,6 +11,6 @@ import CoreData
 public extension NSManagedObject {
     
     public var objectIDString: String? {
-        return self.objectID.URIRepresentation().absoluteString
+        return self.objectID.uriRepresentation().absoluteString
     }
 }

@@ -1,6 +1,6 @@
 //
 //  SGCoreDataTableViewController.swift
-//  Skiptracer
+//  SecretKit
 //
 //  Created by Colin Caufield on 4/1/15.
 //  Copyright (c) 2015 Secret Geometry, Inc. All rights reserved.
@@ -9,154 +9,83 @@
 import UIKit
 import CoreData
 
-public class SGCoreDataTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+open class SGCoreDataTableViewController: SGAbstractTableViewController, NSFetchedResultsControllerDelegate {
+
+    // MARK: - Properties
     
-    public override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        
-        let editButton = self.editButtonItem()
-        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "add:")
-        
-        let navItem = self.navigationItem
-        
-        if (self.needsBackButton) {
-            navItem.rightBarButtonItems = [addButton, editButton]
-        } else {
-            navItem.leftBarButtonItem = editButton
-            navItem.rightBarButtonItem = addButton
-        }
-        
-        self.tableView.alwaysBounceVertical = false
+    open var context: NSManagedObjectContext { return SGData.shared.context! }
+    
+    open var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>?
+    
+    open var fetchPredicate: NSPredicate? { return nil }
+    
+    open var fetchBatchSize: Int { return 20 }
+    
+    open var sortDescriptors: [NSSortDescriptor] { return [] }
+    
+    open var sectionKey: String? { return nil }
+    
+    open var cacheName: String? { return nil }
+    
+    // MARK: - Core Data methods to override.
+    
+    open override func createNewObject() -> AnyObject {
+        return NSEntityDescription.insertNewObject(forEntityName: self.typeName, into: self.context) as NSManagedObject
     }
     
-    // MARK: - Methods to override.
-    
-    public var needsBackButton: Bool { return false }
-    
-    public var fetchPredicate: NSPredicate? { return nil }
-    
-    public var fetchBatchSize: Int { return 20 }
-    
-    public var sortDescriptors: [NSSortDescriptor] { return [] }
-    
-    public var sectionKey: String? { return nil }
-    
-    public var headerHeight: CGFloat { return 0.0 }
-    
-    public var centerHeaderText: Bool { return false }
-    
-    public var cacheName: String? { return nil }
-    
-    public var entityName: String {
-        assertionFailure("entityName must be overridden in SGCoreDataTableViewController subclasses.")
-        return ""
+    open override func objectAt(_ indexPath: IndexPath) -> AnyObject {
+        return self.fetchController.object(at: indexPath)
     }
     
-    public func cellIdentifierForObject(object: AnyObject) -> String {
-        assertionFailure("cellIdentifierForObject must be overridden in SGCoreDataTableViewController subclasses.")
-        return ""
+    open override func allObjects() -> [AnyObject] {
+        return self.fetchController.fetchedObjects ?? []
     }
     
-    public func createNewObject() -> NSManagedObject {
-        return NSEntityDescription.insertNewObjectForEntityForName(self.entityName, inManagedObjectContext: self.context!) as NSManagedObject
+    open override func fetchObjects() {
+        self.refreshData()
     }
     
-    public func deleteObject(object: NSManagedObject) {
-        self.context!.deleteObject(object)
+    open override func deleteObject(_ object: AnyObject, at indexPath: IndexPath) {
+        self.context.delete(object as! NSManagedObject)
+        self.saveObjects()
+    }
+    
+    open override func saveObjects() {
         SGData.shared.save()
     }
     
-    public func prepareNewObject(object: AnyObject) {
-        // nothing
-    }
+    // MARK: - Cell methods to override.
     
-    public func configureCell(cell: UITableViewCell, withObject object: AnyObject) {
-        // nothing
-    }
-    
-    public func didSelectObject(object: AnyObject, new: Bool = false) {
-        // nothing
-    }
-    
-    public func canEditObject(object: AnyObject) -> Bool {
-        return true
+    open override func configureCell(_ cell: UITableViewCell, withObject object: AnyObject) {
+        let name = object.value(forKey: "name") as? String
+        cell.textLabel?.text = name
+        cell.detailTextLabel?.text = ""
     }
     
     // MARK: - UITableViewController
     
-    @IBAction public func add(sender: AnyObject?) {
-        
-        let object = self.createNewObject()
-        self.prepareNewObject(object)
-        
-        if self.autoSelectAddedObjects {
-            self.didSelectObject(object, new: true)
-        }
-        
-        SGData.shared.save()
-    }
-    
-    @IBAction public func edit(sender: AnyObject?) {
-        self.tableView.setEditing(!self.tableView.editing, animated: true)
-    }
-    
-    public override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    open override func numberOfSections(in tableView: UITableView) -> Int {
         return self.fetchController.sections?.count ?? 0
     }
     
-    public override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return self.headerHeight
-    }
-    
-    public override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    open override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let sectionInfo = self.fetchController.sections![section] as NSFetchedResultsSectionInfo
         return sectionInfo.name
     }
     
-    public override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionInfo = self.fetchController.sections![section] as NSFetchedResultsSectionInfo
-        return sectionInfo.numberOfObjects
-    }
-    
-    public override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let object: AnyObject = self.fetchController.objectAtIndexPath(indexPath)
-        let identifier = self.cellIdentifierForObject(object)
-        let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as UITableViewCell
-        self.configureCell(cell, withObject: object)
-        return cell
-    }
-    
-    public override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let object: AnyObject = self.fetchController.objectAtIndexPath(indexPath)
-        self.didSelectObject(object)
-    }
-    
-    public override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        let object: AnyObject = self.fetchController.objectAtIndexPath(indexPath)
-        return self.canEditObject(object)
-    }
-    
-    public override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            let object = self.fetchController.objectAtIndexPath(indexPath) as! NSManagedObject
-            self.deleteObject(object)
-        }
-    }
-    
     // MARK: - NSFetchedResultsController
     
-    public var fetchController: NSFetchedResultsController {
+    open var fetchController: NSFetchedResultsController<NSFetchRequestResult> {
         
-        if self.fetchedResultsController != nil {
-            return self.fetchedResultsController!
+        if let it = self.fetchedResultsController {
+            return it
         }
         
-        let request = NSFetchRequest(entityName: self.entityName)
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: self.typeName)
         self.configureRequest(request)
         
         self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request,
-                                                           managedObjectContext: self.context!,
+                                                           managedObjectContext: self.context,
                                                              sectionNameKeyPath: self.sectionKey,
                                                                       cacheName: self.cacheName)
         self.fetchedResultsController?.delegate = self
@@ -166,93 +95,107 @@ public class SGCoreDataTableViewController: UITableViewController, NSFetchedResu
         return self.fetchedResultsController!
     }
     
-    public func controllerWillChangeContent(controller: NSFetchedResultsController) {
+    open func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
+        if (self.ignoreModelChanges) {
+            return
+        }
+        
         self.tableView.beginUpdates()
     }
     
-    public func controller(controller: NSFetchedResultsController,
-                    didChangeSection sectionInfo: NSFetchedResultsSectionInfo,
-                    atIndex sectionIndex: Int,
-                    forChangeType type: NSFetchedResultsChangeType) {
+    open func controller(controller: NSFetchedResultsController<NSFetchRequestResult>,
+                         didChangeSection sectionInfo: NSFetchedResultsSectionInfo,
+                         atIndex sectionIndex: Int,
+                         forChangeType type: NSFetchedResultsChangeType) {
+        
+        if (self.ignoreModelChanges) {
+            return
+        }
         
         switch type {
             
-            case .Insert:
-                self.tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
+            case .insert:
+                self.tableView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
             
-            case .Delete:
-                self.tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
+            case .delete:
+                self.tableView.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
             
             default:
                 return
         }
     }
     
-    public func controller(controller: NSFetchedResultsController,
-                    didChangeObject anObject: AnyObject,
-                    atIndexPath indexPath: NSIndexPath?,
-                    forChangeType type: NSFetchedResultsChangeType,
-                    newIndexPath: NSIndexPath?) {
+    open func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                           didChange anObject: Any,
+                           at indexPath: IndexPath?,
+                           for type: NSFetchedResultsChangeType,
+                           newIndexPath: IndexPath?) {
+        
+        if (self.ignoreModelChanges) {
+            return
+        }
         
         switch type {
             
-            case .Insert:
-                self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+            case .insert:
+                self.tableView.insertRows(at: [newIndexPath! as IndexPath], with: .fade)
                 self.pathToScrollTo = newIndexPath!
+                self.updateBarButtonStates()
             
-            case .Delete:
-                self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+            case .delete:
+                self.tableView.deleteRows(at: [indexPath! as IndexPath], with: .fade)
+                self.updateBarButtonStates()
             
-            case .Update:
-                if let cell = tableView.cellForRowAtIndexPath(indexPath!) {
-                    self.configureCell(cell, withObject: anObject)
+            case .update:
+                if let cell = tableView.cellForRow(at: indexPath! as IndexPath) {
+                    self.configureCell(cell, withObject: anObject as AnyObject)
                 }
             
-            case .Move:
-                self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-                self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+            case .move:
+                self.tableView.deleteRows(at: [indexPath! as IndexPath], with: .fade)
+                self.tableView.insertRows(at: [newIndexPath! as IndexPath], with: .fade)
         }
     }
     
-    public func controllerDidChangeContent(controller: NSFetchedResultsController) {
+    open func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
+        if (self.ignoreModelChanges) {
+            return
+        }
         
         self.tableView.endUpdates()
         
         if let path = self.pathToScrollTo {
-            self.tableView.scrollToRowAtIndexPath(path, atScrollPosition: .Bottom, animated: true)
+            self.tableView.scrollToRow(at: path as IndexPath, at: .bottom, animated: true)
         }
         
         self.pathToScrollTo = nil
     }
     
-    public var context: NSManagedObjectContext? {
-        return SGData.shared.context
-    }
-    
-    public func updateRequest() {
-        NSFetchedResultsController.deleteCacheWithName(self.cacheName)
+    open func updateRequest() {
+        NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: self.cacheName)
         self.configureRequest(self.fetchController.fetchRequest)
         self.refreshData()
     }
     
-    public func configureRequest(request: NSFetchRequest) {
+    open func configureRequest(_ request: NSFetchRequest<NSFetchRequestResult>) {
         request.predicate = self.fetchPredicate
         request.fetchBatchSize = self.fetchBatchSize
         request.sortDescriptors = self.sortDescriptors
     }
     
-    public func refreshData() {
+    open func refreshData() {
+        
         do {
             try self.fetchController.performFetch()
         }
-        catch let error as NSError {
-            assert(false)
+        catch {
             print(error) // CJC: handle error better
+            assert(false)
         }
+        
         self.tableView.reloadData()
+        self.updateBarButtonStates()
     }
-    
-    public var fetchedResultsController: NSFetchedResultsController?
-    public var pathToScrollTo: NSIndexPath?
-    public var autoSelectAddedObjects = true
 }

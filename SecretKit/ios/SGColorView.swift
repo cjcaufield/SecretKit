@@ -10,7 +10,7 @@ import UIKit
 
 public class SGColorView: UIView {
     
-    public var color = UIColor.blackColor() {
+    public var color = UIColor.black {
         didSet {
             self.setNeedsDisplay()
         }
@@ -27,14 +27,14 @@ public class SGColorView: UIView {
     }
     
     public func initCommon() {
-        self.opaque = false
+        self.isOpaque = false
     }
     
-    public override func drawRect(rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         
         let inner = rect.insetBy(dx: 1.0, dy: 1.0)
         
-        var fill = getRGBAForColor(self.color)
+        var fill = getRGBA(forColor: self.color)
         let light = fill[0] > 0.9 && fill[1] > 0.9 && fill[2] > 0.9
         
         var stroke = fill
@@ -43,10 +43,10 @@ public class SGColorView: UIView {
         }
         
         let context = UIGraphicsGetCurrentContext()
-        CGContextAddEllipseInRect(context, inner)
-        CGContextSetStrokeColor(context, stroke)
-        CGContextSetFillColor(context, fill)
-        CGContextSetLineWidth(context, 1.5)
-        CGContextDrawPath(context, CGPathDrawingMode.FillStroke)
+        context!.addEllipse(in: inner)
+        context!.setStrokeColor(stroke)
+        context!.setFillColor(fill)
+        context!.setLineWidth(1.5)
+        context!.drawPath(using: CGPathDrawingMode.fillStroke)
     }
 }

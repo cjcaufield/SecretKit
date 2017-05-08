@@ -1,6 +1,6 @@
 //
 //  Utilities.swift
-//  Skiptracer
+//  SecretKit
 //
 //  Created by Colin Caufield on 5/24/15.
 //  Copyright (c) 2015 Secret Geometry, Inc. All rights reserved.
@@ -8,7 +8,17 @@
 
 import Foundation
 
-public func removeNils<T>(array: [T?]) -> [T] {
+extension Array where Element: Equatable {
+    
+    public mutating func remove(object: Element) {
+        
+        if let index = self.index(of: object) {
+            self.remove(at: index)
+        }
+    }
+}
+
+public func removeNils<T>(_ array: [T?]) -> [T] {
     
     var newArray = [T]()
     for item in array {
@@ -19,7 +29,7 @@ public func removeNils<T>(array: [T?]) -> [T] {
     return newArray
 }
 
-public func safeCompare<T>(a: T?, b: T?, fn: (T, T) -> T) -> T? {
+public func safeCompare<T>(_ a: T?, b: T?, fn: (T, T) -> T) -> T? {
     
     let items = removeNils([a, b])
     switch items.count {
@@ -29,22 +39,22 @@ public func safeCompare<T>(a: T?, b: T?, fn: (T, T) -> T) -> T? {
     }
 }
 
-public func safeMin<T: Comparable>(a: T?, b: T?) -> T? {
+public func safeMin<T: Comparable>(_ a: T?, b: T?) -> T? {
     return safeCompare(a, b: b, fn: min)
 }
 
-public func safeMax<T: Comparable>(a: T?, b: T?) -> T? {
+public func safeMax<T: Comparable>(_ a: T?, b: T?) -> T? {
     return safeCompare(a, b: b, fn: max)
 }
 
-public func safeEarliestDate(dates: [NSDate?]) -> NSDate? {
+public func safeEarliestDate(_ dates: [Date?]) -> Date? {
     
-    var earliest: NSDate?
+    var earliest: Date?
     for date in removeNils(dates) {
         if earliest == nil {
             earliest = date
         } else {
-            earliest = earliest!.earlierDate(date)
+            earliest = (earliest! as NSDate).earlierDate(date)
         }
     }
     return earliest
@@ -55,13 +65,13 @@ public func safeEarliestDate(dates: [NSDate?]) -> NSDate? {
     import CoreGraphics
     import UIKit
 
-    public func getRGBAForColor(color: UIColor) -> [CGFloat] {
+    public func getRGBA(forColor color: UIColor) -> [CGFloat] {
         var rgba: [CGFloat] = [ 0, 0, 0, 0 ]
         color.getRed(&rgba[0], green: &rgba[1], blue: &rgba[2], alpha: &rgba[3])
         return rgba
     }
 
-    public func getColorForRGBA(rgba: [CGFloat]) -> UIColor {
+    public func getColor(forRGBA rgba: [CGFloat]) -> UIColor {
         let a = (rgba.count < 3) ? 1.0 : rgba[3]
         return UIColor(red: rgba[0], green: rgba[1], blue: rgba[2], alpha: a)
     }

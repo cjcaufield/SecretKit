@@ -1,6 +1,6 @@
 //
 //  CustomTableViewCell.swift
-//  Skiptracer
+//  SecretKit
 //
 //  Created by Colin Caufield on 4/4/15.
 //  Copyright (c) 2015 Secret Geometry, Inc. All rights reserved.
@@ -8,12 +8,10 @@
 
 import UIKit
 
-public class SGCustomTableViewCell: UITableViewCell {
+open class SGCustomTableViewCell: UITableViewCell {
 
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
-        if self.contentView.respondsToSelector("setPreservesSuperviewLayoutMargins:") {
-            self.contentView.preservesSuperviewLayoutMargins = true;
-        }
+        self.contentView.preservesSuperviewLayoutMargins = true
     }
 }

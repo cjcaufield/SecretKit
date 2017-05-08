@@ -1,6 +1,6 @@
 //
 //  SGFormatter.swift
-//  Skiptracer
+//  SecretKit
 //
 //  Created by Colin Caufield on 4/21/15.
 //  Copyright (c) 2015 Secret Geometry, Inc. All rights reserved.
@@ -8,67 +8,67 @@
 
 import Foundation
 
-private var lengthFormatter: NSDateComponentsFormatter? = nil
-private var dateFormatter: NSDateFormatter? = nil
-private var longDateFormatter: NSDateFormatter? = nil
-private var dayFormatter: NSDateFormatter? = nil
-private var monthFormatter: NSDateFormatter? = nil
+private var lengthFormatter: DateComponentsFormatter? = nil
+private var dateFormatter: DateFormatter? = nil
+private var longDateFormatter: DateFormatter? = nil
+private var dayFormatter: DateFormatter? = nil
+private var monthFormatter: DateFormatter? = nil
 
-public class SGFormatter: NSObject {
+open class SGFormatter: NSObject {
    
-    public class func stringFromLength(length: Double) -> String {
+    open class func stringFromLength(_ length: Double) -> String {
         
         if lengthFormatter == nil {
-            lengthFormatter = NSDateComponentsFormatter()
-            lengthFormatter?.allowedUnits = ([.Day, .Hour, .Minute, .Second])
+            lengthFormatter = DateComponentsFormatter()
+            lengthFormatter?.allowedUnits = ([.day, .hour, .minute, .second])
             lengthFormatter?.maximumUnitCount = 2
-            lengthFormatter?.unitsStyle = .Abbreviated
-            lengthFormatter?.zeroFormattingBehavior = .DropAll
+            lengthFormatter?.unitsStyle = .abbreviated
+            lengthFormatter?.zeroFormattingBehavior = .dropAll
         }
         
-        return lengthFormatter!.stringFromTimeInterval(length) ?? ""
+        return lengthFormatter!.string(from: length) ?? ""
     }
     
-    public class func clockStringFromDate(date: NSDate) -> String {
+    open class func clockStringFromDate(_ date: Date) -> String {
         
         if dateFormatter == nil {
-            dateFormatter = NSDateFormatter()
+            dateFormatter = DateFormatter()
             dateFormatter?.dateFormat = "hh:mm"
         }
         
-        return dateFormatter!.stringFromDate(date)
+        return dateFormatter!.string(from: date)
     }
     
-    public class func dateStringFromDate(date: NSDate) -> String {
+    open class func dateStringFromDate(_ date: Date) -> String {
         
         if longDateFormatter == nil {
-            longDateFormatter = NSDateFormatter()
-            longDateFormatter?.dateStyle = .MediumStyle
-            longDateFormatter?.timeStyle = .MediumStyle
+            longDateFormatter = DateFormatter()
+            longDateFormatter?.dateStyle = .medium
+            longDateFormatter?.timeStyle = .medium
         }
         
-        return longDateFormatter!.stringFromDate(date)
+        return longDateFormatter!.string(from: date)
     }
     
-    public class func dayStringFromDate(date: NSDate) -> String {
+    open class func dayStringFromDate(_ date: Date) -> String {
         
         if dayFormatter == nil {
-            dayFormatter = NSDateFormatter()
-            dayFormatter?.dateStyle = .LongStyle
-            dayFormatter?.timeStyle = .NoStyle
+            dayFormatter = DateFormatter()
+            dayFormatter?.dateStyle = .long
+            dayFormatter?.timeStyle = .none
             dayFormatter?.doesRelativeDateFormatting = true
         }
         
-        return dayFormatter!.stringFromDate(date)
+        return dayFormatter!.string(from: date)
     }
     
-    public class func monthStringFromDate(date: NSDate) -> String {
+    open class func monthStringFromDate(_ date: Date) -> String {
         
         if monthFormatter == nil {
-            monthFormatter = NSDateFormatter()
+            monthFormatter = DateFormatter()
             monthFormatter?.dateFormat = "EEEE"
         }
         
-        return monthFormatter!.stringFromDate(date)
+        return monthFormatter!.string(from: date)
     }
 }
