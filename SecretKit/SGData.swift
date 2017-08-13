@@ -313,7 +313,7 @@ open class SGData: NSObject {
     
     open lazy var managedObjectModel: NSManagedObjectModel = {
         let modelURL = Bundle.main.url(forResource: self.name, withExtension: "momd")!
-        return NSManagedObjectModel(contentsOf: modelURL)!
+        return NSManagedObjectModel(contentsOf: modelURL)
     }()
     
     open lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
